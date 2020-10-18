@@ -8,6 +8,7 @@ homeassistant:
   unit_system: imperial
   time_zone: !secret home_time_zone
   internal_url: !secret server_address
+  packages: !include_dir_named includes
 
 # Text to speech
 tts:
