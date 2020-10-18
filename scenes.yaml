@@ -1,0 +1,33 @@
+- id: '1601860703370'
+  name: Lamps on
+  entities:
+    light.dining_room_light:
+      brightness: 255
+      friendly_name: Dining room light
+      supported_features: 41
+      state: 'on'
+    light.floor_lamp:
+      brightness: 255
+      friendly_name: Floor lamp
+      supported_features: 41
+      state: 'on'
+    light.end_table_lamp:
+      brightness: 255
+      friendly_name: End table lamp
+      supported_features: 41
+      state: 'on'
+- id: '1601860868920'
+  name: Lamps off
+  entities:
+    light.dining_room_light:
+      friendly_name: Dining room light
+      supported_features: 41
+      state: 'off'
+    light.end_table_lamp:
+      friendly_name: End table lamp
+      supported_features: 41
+      state: 'off'
+    light.floor_lamp:
+      friendly_name: Floor lamp
+      supported_features: 41
+      state: 'off'

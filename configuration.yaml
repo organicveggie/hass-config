@@ -1,0 +1,41 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  unit_system: imperial
+  time_zone: !secret home_time_zone
+  internal_url: !secret server_address
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# Belkin Wemo support
+wemo:
+  discovery: true
+
+# Pushover notifications
+notify:
+  - name: pushover_notify_hass
+    platform: pushover
+    api_key: !secret pushover_api_key
+    user_key: !secret pushover_user_key
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+ecowitt:
+  port: !secret ecowitt_port
+  barounit: metric
+  windunit: imperial
+  rainunit: imperial
+  windchillunit: hybrid

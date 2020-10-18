@@ -1,0 +1,164 @@
+- id: '1601861290733'
+  alias: Turn on lights in the morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:30
+  - platform: sun
+    event: sunrise
+    offset: -00:30:00
+  condition: []
+  action:
+  - domain: light
+    entity_id: light.dining_room_light
+    device_id: 1bf4a797f96611eaa83ca33737892e40
+    type: turn_on
+    brightness_pct: 100
+    flash: long
+  mode: single
+- id: '1601861512613'
+  alias: Turn lights on in the evening
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -01:00:00
+  condition: []
+  action:
+  - scene: scene.lamps_on
+  mode: single
+- id: '1601861561681'
+  alias: Turn lights off in the evening
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00'
+  condition: []
+  action:
+  - scene: scene.lamps_off
+  mode: single
+- id: '1602451854852'
+  alias: David bin full Android notifiy
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: vacuum.david
+    attribute: bin_full
+    to: 'On'
+  condition:
+  - condition: time
+    after: 07:00
+    before: '23:00'
+  action:
+  - service: notify.mobile_app_pixel_3
+    data:
+      title: David Bin Full
+      message: Davids bin is full. Please empty it!
+  mode: single
+- id: '1602948877563'
+  alias: Everything off weeknight
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00'
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - scene: scene.lamps_off
+  - type: turn_off
+    device_id: c533d733108c11eb8e12bd20fc718008
+    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    domain: switch
+  mode: single
+- id: '1602948908812'
+  alias: Everything off weekend
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:30'
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  action:
+  - scene: scene.lamps_off
+  - type: turn_off
+    device_id: c533d733108c11eb8e12bd20fc718008
+    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    domain: switch
+  mode: single
+- id: '1602948968328'
+  alias: Turn lights off weekend morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:30
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  action:
+  - scene: scene.lamps_off
+  mode: single
+- id: '1602948993793'
+  alias: Turn lights off weekday morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:30
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - scene: scene.lamps_off
+  mode: single
+- id: '1602949139660'
+  alias: Turn espresso maker on (weekdays)
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:45
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - type: turn_on
+    device_id: c533d733108c11eb8e12bd20fc718008
+    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    domain: switch
+  mode: single
+- id: '1602949162441'
+  alias: Turn espresso maker on (weekend)
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:15
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  action:
+  - type: turn_on
+    device_id: c533d733108c11eb8e12bd20fc718008
+    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    domain: switch
+  mode: single
