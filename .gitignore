@@ -11,9 +11,12 @@ pyozw.sqlite
 zwcfg*.xml
 zwscene.xml
 
-# Ignore other files
+# Ignore other Home Assistant files
 home-assistant.log
 home-assistant_v2.db
+
+# Ignore Logitech Harmony files
+harmony_*.conf
 
 # Ignore secrets
 google_calendars.yaml
