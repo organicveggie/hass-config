@@ -39,3 +39,14 @@ ecowitt:
   windunit: imperial
   rainunit: imperial
   windchillunit: hybrid
+
+lovelace:
+  mode: storage
+  # Add yaml dashboards
+  dashboards:
+    tablet-yaml:
+      mode: yaml
+      title: Tablet
+      icon: mdi:script
+      show_in_sidebar: true
+      filename: ui-tablet.yaml
