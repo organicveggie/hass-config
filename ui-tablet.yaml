@@ -9,3 +9,5 @@ views:
           <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
 
           <b>{{ states('sensor.sidebar_greeting') }}</b>
+
+          <b>{{ states('sensor.sidebar_active') }}</b>
