@@ -51,34 +51,38 @@ sensor:
 
       sidebar_active:
         value_template: >
-          {% set lights = [states.light.dining_room_light, states.light.end_table_lamp, states.light.floor_lamp] %}
+          {% set lights = [states.light.dining_room_light, states.light.end_table_lamp, states.light.floor_lamp,
+             states.light.wine_fridge] %}
           {% set lights_on = lights | selectattr('state','eq','on') | list %}
           {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
-          {% set switches = [switch.leviton_dzpa1_2bw_plug_in_outlet_switch] %}
+          {% set switches = [states.switch.leviton_dzpa1_2bw_plug_in_outlet_switch] %}
           {% set switches_on = switches | selectattr('state','eq','on') | list %} 
           {% set switches_name = switches | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
-          {% if (lights_on | length == 0) and (switches_on | length > 0) %} 
-          {{ switches_name | regex_replace(',([^,]*)$',' och\\1') }} är på
+          {% if (lights_on | length == 0) and (switches_on | length == 1) %} 
+          {{ switches_name }} is on
+
+          {% elif (lights_on | length == 0) and (switches_on | length > 1) %} 
+          {{ switches_name | regex_replace(',([^,]*)$',' and\\1') }} are on
 
           {% elif (lights_on | length == 1) and (switches_on | length == 1) %}
-          {{ lights_name }} och {{switches_name }} är på
+          {{ lights_name }} and {{switches_name }} are on
 
           {% elif (lights_on | length == 1) and (switches_on | length > 1) %}
-          {{ lights_name }}, {{ switches_name | regex_replace(',([^,]*)$',' och\\1') }} är på
+          {{ lights_name }}, {{ switches_name | regex_replace(',([^,]*)$',' and\\1') }} are on
 
           {% elif (lights_on | length > 1) and (switches_on | length == 1) %}
-          {{ lights_on | length }} lampor och {{ switches_name }} är på
+          {{ lights_on | length }} lights and {{ switches_name }} are on
 
           {% elif (lights_on | length > 1) and (switches_on | length > 1) %}
-          {{ lights_on | length }} lampor, {{ switches_name | regex_replace(',([^,]*)$',' och\\1') }} är på
+          {{ lights_on | length }} lights, {{ switches_name | regex_replace(',([^,]*)$',' and\\1') }} are on
 
           {% elif (lights_on | length == 1) and (switches_on | length == 0) %}
-          {{ lights_name }} är på
+          {{ lights_name }} is on
 
           {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
-          {{ lights_on | length}} lampor är på
+          {{ lights_on | length}} lights are on
 
           {% else %} 
           <font color='#6a7377'>Everything is off</font> 
