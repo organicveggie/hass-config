@@ -1,18 +1,14 @@
 sensor:
-  ####################################################
-  #                                                  #
-  #                     SENSORS                      #
-  #                                                  #
-  ####################################################
+  ##########
+  # SENSORS
+  ##########
   - platform: time_date
     display_options:
       ['time', 'date']
 
-  ####################################################
-  #                                                  #
-  #                     TEMPLATE                     #
-  #                                                  #
-  ####################################################
+  ##########
+  # TEMPLATE
+  ##########
   - platform: template
     sensors:
       sidebar_day:
@@ -27,8 +23,7 @@ sensor:
         value_template: >
           {% set month = as_local(states.sensor.date.last_changed).strftime('%m') | int %}
           {% set day = as_local(states.sensor.date.last_changed).strftime('%d') | int %}
-          {% set months = ['January', 'February', 'March', 'April', 'May', 'June', 
-          'July', 'August', 'September', 'October', 'November', 'December'] %}
+          {% set months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %}
           {{ day }} {{ months[month - 1] }}
 
       sidebar_greeting:
@@ -51,8 +46,7 @@ sensor:
 
       sidebar_active:
         value_template: >
-          {% set lights = [states.light.dining_room_light, states.light.end_table_lamp, states.light.floor_lamp,
-             states.light.wine_fridge] %}
+          {% set lights = [states.light.dining_room_light, states.light.end_table_lamp, states.light.floor_lamp, states.light.wine_fridge] %}
           {% set lights_on = lights | selectattr('state','eq','on') | list %}
           {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 

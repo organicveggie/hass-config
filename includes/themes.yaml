@@ -1,12 +1,10 @@
 frontend:
   themes:
 
-    ####################################################
-    #                                                  #
-    #                      THEME                       #
-    #                                                  #
-    ####################################################
-
+    ##########
+    # THEME
+    ##########
+ 
     # Based on https://github.com/seangreen2/slate_theme
 
     tablet:
@@ -35,12 +33,9 @@ frontend:
       paper-grey-50: 'var(--primary-text-color)'
       paper-grey-200: '#222222'
 
-    ####################################################
-    #                                                  #
-    #                     CARD MOD                     #
-    #                                                  #
-    ####################################################
-
+      ##########
+      # CARD MOD
+      ##########
       card-mod-theme: tablet
       card-color: rgba(34,38,39,0.9)
       card-header: rgba(48,52,52,0.8)
@@ -52,11 +47,9 @@ frontend:
         }
 
       card-mod-card-yaml: |
-          /* * * * * * * * * * * * * * * * * *
-           *                                 *
-           *             CLASSES             *
-           *                                 *
-           * * * * * * * * * * * * * * * * * */
+          /**********
+           * CLASSES
+           **********/
           .sidebar {
             font-size: 1.5vw;
             font-weight: 300;
