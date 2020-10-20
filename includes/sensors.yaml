@@ -29,18 +29,11 @@ sensor:
       sidebar_greeting:
         value_template: >
           {% set time = as_timestamp(states.sensor.time.last_changed | as_local) | timestamp_custom('%H') | int %}
-          {% if time <= 1 %} Good night
-          {% elif time <= 3 %} Good night
-          {% elif time <= 5 %} Good night
-          {% elif time <= 7 %} Good morning
-          {% elif time <= 9 %} Good morning
-          {% elif time <= 10 %} Good morning
-          {% elif time <= 13 %} Good afternoon
-          {% elif time <= 15 %} Good afternoon
-          {% elif time <= 17 %} Good afternoon
-          {% elif time <= 19 %} Good evening
-          {% elif time <= 22 %} Good evening
-          {% elif time <= 23 %} Good evening
+          {% if time < 5 %} Good night
+          {% elif time < 12 %} Good morning
+          {% elif time < 17 %} Good afternoon
+          {% elif time < 19 %} Good evening
+          {% elif time < 22 %} Good night
           {% else %} Good evening
           {% endif %}
 
