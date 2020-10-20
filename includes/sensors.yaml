@@ -81,3 +81,10 @@ sensor:
           {% else %} 
           <font color='#6a7377'>Everything is off</font> 
           {% endif %}
+
+      sidebar_vacuum:
+        value_template: >
+          {% set entity_id = 'vacuum.david' %}
+          {% if is_state(entity_id, 'cleaning') %} David is cleaning
+          {% elif is_state(entity_id, 'returning') %} David is done
+          {% endif %}
