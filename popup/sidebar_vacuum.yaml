@@ -1,10 +1,40 @@
 action: call-service
 service: browser_mod.popup
 service_data:
-  title: Dammsugare
-  hide_header: true
+  title: Roomba
   deviceID: this
   card:
-    type: entities
-    entities:
-      - vacuum.david
+    type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - entity: vacuum.david
+            attribute: status
+            name: Status
+          - entity: binary_sensor.david_bin_full
+            name: "Bin full"
+          - entity: sensor.david_battery_level
+            name: "Battery level"
+          - entity: vacuum.david
+            attribute: fan_speed
+            name: Fan speed
+      - type: horizontal-stack
+        cards:
+          - type: button
+            icon: mdi:play-pause
+            show_state: false
+            tap_action:
+                action: call-service
+                service: vacuum.start_pause
+          - type: button
+            icon: mdi:home-circle
+            show_state: false
+            tap_action:
+                action: call-service
+                service: vacuum.return_to_base
+          - type: button
+            show_state: false
+            icon: mdi:map-marker-question
+            tap_action:
+                action: call-service
+                service: vacuum.locate

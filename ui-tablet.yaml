@@ -20,7 +20,7 @@ views:
                   - type: button
                     icon: mdi:robot-vacuum
                     show_state: false
-                    icon_height: 128
+                    icon_height: 64
                     tap_action: !include popup/sidebar_vacuum.yaml
                   - type: button
                     icon: mdi:information-outline
