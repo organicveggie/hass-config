@@ -142,8 +142,8 @@ sensor:
 
       ##########
       # Vacuum
-      ##########      
-      vacuum_cleaned area:
+      ##########
+      vacuum_cleaned_area:
         value_template: >
           {% set entity_id = 'vacuum.david' %}
           {% if is_state(entity_id, 'cleaning') %} Cleaned: {{ state_attr('vacuum.david', 'cleaned_area') }} ft^2
