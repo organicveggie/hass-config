@@ -22,4 +22,4 @@ service_data:
         entities:
           - entity: sensor.processor_use
           - entity: sensor.memory_use_percent
-          - entity: sensor.swap_use_precent
+          - entity: sensor.swap_use_percent

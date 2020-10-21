@@ -53,6 +53,8 @@ lovelace:
       type: module
     - url: /local/community/lovelace-hui-element/hui-element.js
       type: module
+    - url:  /local/community/mini-graph-card/mini-graph-card-bundle.js
+      type: module
   # Add yaml dashboards
   dashboards:
     tablet-yaml:
