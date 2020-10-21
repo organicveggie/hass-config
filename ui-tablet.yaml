@@ -26,6 +26,7 @@ views:
                     icon: mdi:information-outline
                     show_state: false
                     icon_height: 128
+                    tap_action: !include popup/sidebar_homeassistant.yaml
                   - type: button
                     icon: mdi:nas
                     show_state: false
