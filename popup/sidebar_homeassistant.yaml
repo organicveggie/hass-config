@@ -12,3 +12,14 @@ service_data:
           - entity: sensor.home_assistant_v2_db
           - entity: sensor.home_assistant_log
           - entity: sensor.hass_uptime
+
+      - type: custom:bar-card
+        width: 55%
+        height: 2em
+        decimal: 0
+        unit_of_measurement: '%'
+        entity_row: true
+        entities:
+          - entity: sensor.processor_use
+          - entity: sensor.memory_use_percent
+          - entity: sensor.swap_use_precent

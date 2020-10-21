@@ -4,7 +4,7 @@ customize:
   ##########
   sensor.home_assistant_v2_db:
     friendly_name: Database
-    icon: mdi:database
+    icon: mdi:database-check
 
   sensor.home_assistant_log:
     friendly_name: Log file

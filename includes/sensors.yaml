@@ -7,6 +7,14 @@ sensor:
       - /config/home-assistant_v2.db
       - /config/home-assistant.log
 
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: swap_use_percent
+      - type: processor_use
+
   - platform: time_date
     display_options:
       ['time', 'date']
@@ -33,7 +41,7 @@ sensor:
     sensors:
       ##########
       # Information
-      ##########      
+      ##########
       hass_uptime:
         friendly_name: Last restart
         icon_template: mdi:update
