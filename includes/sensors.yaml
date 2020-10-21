@@ -2,15 +2,41 @@ sensor:
   ##########
   # SENSORS
   ##########
+  - platform: version
+    name: hass_version_installed
+
+  - platform: version
+    name: hass_version_latest
+    source: docker
+
+  - platform: version
+    name: hass_version_latest_beta
+    beta: true
+    source: docker
+
+  - platform: uptime
+    unit_of_measurement: minutes
+
   - platform: time_date
     display_options:
       ['time', 'date']
 
   ##########
-  # TEMPLATE
+  # TEMPLATES
   ##########
   - platform: template
     sensors:
+      ##########
+      # Information
+      ##########      
+      hass_version:
+        icon_template: mdi:home-assistant
+        friendly_name_template: >
+          Installed {{ states('sensor.hass_version_installed') }}
+        value_template: >
+          {{ 'Latest' if states('sensor.hass_version_installed') == 
+          states('sensor.hass_version_latest') else states('sensor.hass_version_latest') }}
+
       ##########
       # Sidebar
       ##########      

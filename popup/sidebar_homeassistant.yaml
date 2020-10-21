@@ -9,7 +9,4 @@ service_data:
       - type: entities
         entities:
           - entity: sensor.hass_version
-          - entity: sensor.hass_dev_release
-          - entity: sensor.home_assistant_v2_db
-          - entity: sensor.home_assistant_log
           - entity: sensor.hass_uptime
