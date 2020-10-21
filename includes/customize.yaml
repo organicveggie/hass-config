@@ -1,0 +1,11 @@
+customize:
+  ##########
+  # SENSORS
+  ##########
+  sensor.home_assistant_v2_db:
+    friendly_name: Database
+    icon: mdi:database
+
+  sensor.home_assistant_log:
+    friendly_name: Log file
+    icon: mdi:file-document
