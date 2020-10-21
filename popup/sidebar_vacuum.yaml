@@ -12,9 +12,9 @@ service_data:
             attribute: status
             name: Status
           - entity: binary_sensor.david_bin_full
-            name: "Bin full"
+            name: Bin full
           - entity: sensor.david_battery_level
-            name: "Battery level"
+            name: Battery level
           - entity: vacuum.david
             attribute: fan_speed
             name: Fan speed
@@ -26,15 +26,18 @@ service_data:
             tap_action:
                 action: call-service
                 service: vacuum.start_pause
+                entity_id: vacuum.david
           - type: button
             icon: mdi:home-circle
             show_state: false
             tap_action:
                 action: call-service
                 service: vacuum.return_to_base
+                entity_id: vacuum.david
           - type: button
             show_state: false
             icon: mdi:map-marker-question
             tap_action:
                 action: call-service
                 service: vacuum.locate
+                entity_id: vacuum.david
