@@ -11,6 +11,9 @@ sensor:
   ##########
   - platform: template
     sensors:
+      ##########
+      # Sidebar
+      ##########      
       sidebar_day:
         icon_template: mdi:calendar
         value_template: >
