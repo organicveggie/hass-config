@@ -9,6 +9,7 @@ homeassistant:
   time_zone: !secret home_time_zone
   internal_url: !secret server_address
   packages: !include_dir_named includes
+  allowlist_external_dirs: [/config/]
 
 # Text to speech
 tts:

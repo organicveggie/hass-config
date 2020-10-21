@@ -2,6 +2,18 @@ sensor:
   ##########
   # SENSORS
   ##########
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant_v2.db
+      - /config/home-assistant.log
+
+  - platform: time_date
+    display_options:
+      ['time', 'date']
+
+  - platform: uptime
+    unit_of_measurement: minutes
+
   - platform: version
     name: hass_version_installed
 
@@ -13,13 +25,6 @@ sensor:
     name: hass_version_latest_beta
     beta: true
     source: docker
-
-  - platform: uptime
-    unit_of_measurement: minutes
-
-  - platform: time_date
-    display_options:
-      ['time', 'date']
 
   ##########
   # TEMPLATES
