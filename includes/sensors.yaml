@@ -139,3 +139,20 @@ sensor:
           {% if is_state(entity_id, 'cleaning') %} David is cleaning
           {% elif is_state(entity_id, 'returning') %} David is done
           {% endif %}
+
+      ##########
+      # Vacuum
+      ##########      
+      vacuum_cleaned area:
+        value_template: >
+          {% set entity_id = 'vacuum.david' %}
+          {% if is_state(entity_id, 'cleaning') %} Cleaned: {{ state_attr('vacuum.david', 'cleaned_area') }} ft^2
+          {% elif is_state(entity_id, 'returning') %} Cleaned: {{ state_attr('vacuum.david', 'cleaned_area') }} ft^2
+          {% endif %}
+
+      vacuum_cleaning_time:
+        value_template: >
+          {% set entity_id = 'vacuum.david' %}
+          {% if is_state(entity_id, 'cleaning') %} Cleaning time: {{ state_attr('vacuum.david', 'cleaning_time') }} mins
+          {% elif is_state(entity_id, 'returning') %} Cleaning time: {{ state_attr('vacuum.david', 'cleaning_time') }} mins
+          {% endif %}

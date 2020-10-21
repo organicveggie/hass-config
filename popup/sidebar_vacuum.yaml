@@ -18,6 +18,16 @@ service_data:
           - entity: vacuum.david
             attribute: fan_speed
             name: Fan speed
+          - type: conditional
+            conditions:
+              - entity: vacuum.david
+                state: cleaning
+                row: sensor.vacuum_cleaning_time
+          - type: conditional
+            conditions:
+              - entity: vacuum.david
+                state: cleaning
+                row: sensor.vacuum_cleaned_area
       - type: horizontal-stack
         cards:
           - type: button
