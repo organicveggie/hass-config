@@ -22,32 +22,41 @@ service_data:
             conditions:
               - entity: vacuum.david
                 state: cleaning
-                row: sensor.vacuum_cleaning_time
+            row:
+              entity: sensor.vacuum_cleaning_time
           - type: conditional
             conditions:
               - entity: vacuum.david
                 state: cleaning
-                row: sensor.vacuum_cleaned_area
+            row:
+              entity: sensor.vacuum_cleaned_area
       - type: horizontal-stack
         cards:
           - type: button
             icon: mdi:play-pause
             show_state: false
+            name: Start/Pause
             tap_action:
                 action: call-service
                 service: vacuum.start_pause
-                entity_id: vacuum.david
+                service_data:
+                  entity_id: vacuum.david
           - type: button
             icon: mdi:home-circle
             show_state: false
+            name: Send Home
             tap_action:
                 action: call-service
                 service: vacuum.return_to_base
-                entity_id: vacuum.david
+                service_data:
+                  entity_id: vacuum.david
           - type: button
-            show_state: false
             icon: mdi:map-marker-question
+            name: Locate
+            show_state: false
             tap_action:
                 action: call-service
                 service: vacuum.locate
-                entity_id: vacuum.david
+              service_data:
+                  entity_id: vacuum.david
+  
