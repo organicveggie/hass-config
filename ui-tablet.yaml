@@ -1,49 +1,61 @@
 views:
   - panel: true
     cards:
-      - type: horizontal-stack
+      - title: 8" Tablet
+        type: custom:layout-card
+        layout: vertical
+        column_width: [20%, 80%]
+        column_num: 2
         cards:
-          - type: vertical-stack
+          - type: markdown
+            class: sidebar
+            style: |
+              .sidebar {
+                font-size: 1.5vw;
+                font-weight: 300;
+                opacity: 0.75;
+              }
+            content: >
+              <span>{{ states('sensor.time') }}</span>
+
+              <font color='#6a7377'><b>{{ states('sensor.sidebar_day') }}</b><br>
+              <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
+
+              <b>{{ states('sensor.sidebar_greeting') }}</b>
+
+              <b>{{ states('sensor.sidebar_active') }}</b>
+
+              <font color='#6a7377'>
+              <b>{{ states('sensor.sidebar_vacuum') }}</b>
+              </font>
+          - type: horizontal-stack
             cards:
-              - type: markdown
-                content: >
-                  <span>{{ states('sensor.time') }}</span>
+              - type: button
+                icon: mdi:robot-vacuum
+                show_state: false
+                tap_action: !include popup/sidebar_vacuum.yaml
+                icon_height: 64
+              - type: button
+                icon: mdi:information-outline
+                show_state: false
+                tap_action: !include popup/sidebar_homeassistant.yaml
+                icon_height: 64
+              - type: button
+                icon: mdi:nas
+                show_state: false
+                icon_height: 64
+          - break
+          - type: glance
+            title: Temperature
+            entities:
+              - entity: sensor.outdoor_temperature
+                name: Outside
+              - entity: sensor.temperature_3
+                name: Kitchen
+              - entity: sensor.temperature_4
+                name: Master Bedroom
+              - entity: sensor.temperature_1
+                name: Garage
+              - entity: sensor.temperature_2
+                name: Wine Fridge
 
-                  <font color='#6a7377'><b>{{ states('sensor.sidebar_day') }}</b><br>
-                  <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
-
-                  <b>{{ states('sensor.sidebar_greeting') }}</b>
-
-                  <b>{{ states('sensor.sidebar_active') }}</b>
-              - type: horizontal-stack
-                cards:
-                  - type: button
-                    icon: mdi:robot-vacuum
-                    show_state: false
-                    icon_height: 64
-                    tap_action: !include popup/sidebar_vacuum.yaml
-                  - type: button
-                    icon: mdi:information-outline
-                    show_state: false
-                    icon_height: 128
-                    tap_action: !include popup/sidebar_homeassistant.yaml
-                  - type: button
-                    icon: mdi:nas
-                    show_state: false
-                    icon_height: 128
-
-          - type: vertical-stack
-            cards:
-              - type: glance
-                title: Temperature
-                entities:
-                  - entity: sensor.outdoor_temperature
-                    name: Outside
-                  - entity: sensor.temperature_3
-                    name: Kitchen
-                  - entity: sensor.temperature_4
-                    name: Master Bedroom
-                  - entity: sensor.temperature_1
-                    name: Garage
-                  - entity: sensor.temperature_2
-                    name: Wine Fridge
