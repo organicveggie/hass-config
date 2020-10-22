@@ -32,15 +32,34 @@ service_data:
               entity: sensor.vacuum_cleaned_area
       - type: horizontal-stack
         cards:
-          - type: button
-            icon: mdi:play-pause
-            show_state: false
-            name: Start/Pause
-            tap_action:
-                action: call-service
-                service: vacuum.start_pause
-                service_data:
-                  entity_id: vacuum.david
+          - type: conditional
+            conditions:
+              - entity: vacuum.david
+                state_not: cleaning
+            card:
+              type: button
+              icon: mdi:play-circle
+              show_state: false
+              name: Start
+              tap_action:
+                  action: call-service
+                  service: vacuum.start
+                  service_data:
+                    entity_id: vacuum.david
+          - type: conditional
+            conditions:
+              - entity: vacuum.david
+                state: cleaning
+            card:
+              type: button
+              icon: mdi:pause-circle
+              show_state: false
+              name: Start/Pause
+              tap_action:
+                  action: call-service
+                  service: vacuum.start_pause
+                  service_data:
+                    entity_id: vacuum.david
           - type: button
             icon: mdi:home-circle
             show_state: false
