@@ -55,6 +55,8 @@ lovelace:
       type: module
     - url:  /local/community/mini-graph-card/mini-graph-card-bundle.js
       type: module
+    - url: /local/community/lovelace-layout-card/layout-card.js
+      type: module
   # Add yaml dashboards
   dashboards:
     tablet-yaml:
