@@ -57,6 +57,6 @@ service_data:
             tap_action:
                 action: call-service
                 service: vacuum.locate
-              service_data:
-                  entity_id: vacuum.david
+                service_data:
+                    entity_id: vacuum.david
   
