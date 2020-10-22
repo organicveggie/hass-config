@@ -34,69 +34,16 @@ views:
 
           - type: vertical-stack
             cards:
-              # Outside
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    name: Outside Temperature
-                    entities:
-                      - entity: sensor.outdoor_temperature
-                        name: Outside Temperature
-                    line_color: red
-                  - type: custom:mini-graph-card
-                    name: Outside Humidity
-                    entities:
-                      - entity: sensor.humidity
-                        name: Outside Humidity
-                    line_color: blue
-              # Inside
-              - type: custom:mini-graph-card
-                name: Indoor temperature
+              - type: glance
+                title: Temperature
                 entities:
-                  - entity: sensor.indoor_temperature
-                    nane: Atrium
+                  - entity: sensor.outdoor_temperature
+                    name: Outside
                   - entity: sensor.temperature_3
                     name: Kitchen
                   - entity: sensor.temperature_4
                     name: Master Bedroom
-                line_color: red
-              - type: custom:mini-graph-card
-                name: Indoor humidity
-                entities:
-                  - entity: sensor.indoor_humidity
-                    name: Atrium
-                  - entity: sensor.humidity_3
-                    name: Kitchen
-                  - entity: sensor.humidity_4
-                    name: Master Bedroom
-                line_color: blue
-              # Garage
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    name: Garage Temperature
-                    entities:
-                      - entity: sensor.temperature_1
-                        name: Garage
-                    line_color: red
-                  - type: custom:mini-graph-card
-                    name: Garage Humidity
-                    entities:
-                      - entity: sensor.humidity_1
-                        name: Garage
-                    line_color: blue
-              # Wine Fridge
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    name: Wine Fridge Temperature
-                    entities:
-                      - entity: sensor.temperature_2
-                        name: Wine Fridge
-                    line_color: red
-                  - type: custom:mini-graph-card
-                    name: Wine Fridge Hunidity
-                    entities:
-                      - entity: sensor.humidity_2
-                        name: Wine Fridge
-                    line_color: blue
+                  - entity: sensor.temperature_1
+                    name: Garage
+                  - entity: sensor.temperature_2
+                    name: Wine Fridge

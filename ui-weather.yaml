@@ -1,0 +1,93 @@
+views:
+  - panel: true
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: >
+                  <span>{{ states('sensor.time') }}</span>
+
+                  <font color='#6a7377'><b>{{ states('sensor.sidebar_day') }}</b><br>
+                  <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
+
+                  <b>{{ states('sensor.sidebar_greeting') }}</b>
+
+                  <b>{{ states('sensor.sidebar_active') }}</b>
+              - type: horizontal-stack
+                cards:
+                  - type: button
+                    icon: mdi:robot-vacuum
+                    show_state: false
+                    icon_height: 64
+                    tap_action: !include popup/sidebar_vacuum.yaml
+                  - type: button
+                    icon: mdi:information-outline
+                    show_state: false
+                    icon_height: 128
+                    tap_action: !include popup/sidebar_homeassistant.yaml
+                  - type: button
+                    icon: mdi:nas
+                    show_state: false
+                    icon_height: 128
+
+          - type: vertical-stack
+            cards:
+              # Outside
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    name: OUTSIDE
+                    line_width: 2
+                    entities:
+                      - entity: sensor.outdoor_temperature
+                        name: Temp
+                        line_color: red
+                      - entity: sensor.humidity
+                        name: Humidity
+                        line_color: blue
+                        y_axis: secondary
+                    show:
+                      labels: true
+                      labels_secondary: true
+              # Inside
+              - type: custom:mini-graph-card
+                name: INDOOR TEMP
+                entities:
+                  - entity: sensor.indoor_temperature
+                    nane: Atrium
+                  - entity: sensor.temperature_3
+                    name: Kitchen
+                  - entity: sensor.temperature_4
+                    name: Master Bedroom
+                line_color: red
+              # Garage
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    name: GARAGE
+                    entities:
+                      - entity: sensor.temperature_1
+                        name: Temp
+                        line_color: red
+                      - entity: sensor.humidity_1
+                        name: Humidity
+                        line_color: blue
+                        y_axis: secondary
+                    show:
+                      labels: true
+                      labels_secondary: true
+                  - type: custom:mini-graph-card
+                    name: WINE FRIDGE
+                    entities:
+                      - entity: sensor.temperature_2
+                        name: Temp
+                        line_color: red
+                      - entity: sensor.humidity_2
+                        name: Humidity
+                        line_color: blue
+                        y_axis: secondary
+                    show:
+                      labels: true
+                      labels_secondary: true
