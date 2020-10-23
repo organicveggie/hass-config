@@ -45,22 +45,9 @@ views:
                 show_state: false
                 icon_height: 64
           - break
-          - type: glance
-            title: Temperature
-            entities:
-              - entity: sensor.outdoor_temperature
-                name: Outside
-              - entity: sensor.temperature_3
-                name: Kitchen
-              - entity: sensor.temperature_4
-                name: Master Bedroom
-              - entity: sensor.temperature_1
-                name: Garage
-              - entity: sensor.temperature_2
-                name: Wine Fridge
           - type: custom:layout-card
             layout: horizontal
-            column_width: [50%, 50%, 50%]
+            column_width: [33%, 34%, 33%]
             column_num: 3
             cards:
               - type: vertical-stack
@@ -99,7 +86,7 @@ views:
                       - entity: sensor.placeholder
           - type: custom:layout-card
             layout: horizontal
-            column_width: [50%, 50%, 50%]
+            column_width: [33%, 34%, 33%]
             column_num: 3
             cards:
               - type: vertical-stack
@@ -139,5 +126,45 @@ views:
                     entities:
                       - entity: lock.schlage_front_door_locked
                         name: Front
+                      - entity: sensor.placeholder
+                      - entity: sensor.placeholder
+          - type: custom:layout-card
+            layout: horizontal
+            column_width: [33%, 34%, 33%]
+            column_num: 3
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      OUTSIDE
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.outdoor_temperature
+                        name: Temp
+                      - entity: sensor.humidity
+                        name: Hunidity
+                      - entity: sensor.placeholder
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      PLEX
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.placeholder
+                      - entity: sensor.placeholder
+                      - entity: sensor.placeholder
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      FORECAST
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.placeholder
                       - entity: sensor.placeholder
                       - entity: sensor.placeholder
