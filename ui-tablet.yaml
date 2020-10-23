@@ -4,7 +4,7 @@ views:
       - title: 8" Tablet
         type: custom:layout-card
         layout: vertical
-        column_width: [20%, 80%]
+        column_width: [21%, 79%]
         column_num: 2
         cards:
           - type: markdown
@@ -58,4 +58,86 @@ views:
                 name: Garage
               - entity: sensor.temperature_2
                 name: Wine Fridge
-
+          - type: custom:layout-card
+            layout: horizontal
+            column_width: [50%, 50%, 50%]
+            column_num: 3
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      DINING ROOM
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: light.dining_room_light
+                        name: Buffet
+                      - entity: sensor.placeholder
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      LIVING ROOM
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: light.end_table_lamp
+                        name: End Table
+                      - entity: light.floor_lamp
+                        name: Floor
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      MASTER BEDROOM
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.temperature_4
+                        name: Temp
+                      - entity: sensor.placeholder
+          - type: custom:layout-card
+            layout: horizontal
+            column_width: [50%, 50%, 50%]
+            column_num: 3
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      GARAGE
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.temperature_1
+                        name: Temp
+                      - entity: sensor.temperature_2
+                        name: Wine Fridge
+                      - entity: light.wine_fridge
+                        name: Wine Fridge
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      KITCHEN
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.temperature_3
+                        name: Temp
+                      - entity: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+                        name: Espresso Machine                        
+                      - entity: sensor.placeholder
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      DOORS
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: lock.schlage_front_door_locked
+                        name: Front
+                      - entity: sensor.placeholder
+                      - entity: sensor.placeholder

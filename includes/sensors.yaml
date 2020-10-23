@@ -66,6 +66,9 @@ sensor:
           {{ 'Latest' if states('sensor.hass_version_installed') == 
           states('sensor.hass_version_latest') else states('sensor.hass_version_latest') }}
 
+     placeholder:
+        value_template: ' '
+
       ##########
       # Sidebar
       ##########      
