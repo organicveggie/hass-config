@@ -10,7 +10,7 @@ homeassistant:
   internal_url: !secret server_address
   packages: !include_dir_named includes
   allowlist_external_dirs: [/config/]
-  #customize: !include customize.yaml
+  customize: !include customize.yaml
 
 # Text to speech
 tts:
@@ -66,3 +66,8 @@ lovelace:
       icon: mdi:tablet-dashboard
       show_in_sidebar: true
       filename: ui-tablet.yaml
+
+cover:
+  - platform: myq
+    username: !secret myq_username
+    password: !secret myq_password
