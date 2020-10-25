@@ -12,13 +12,32 @@ homeassistant:
   allowlist_external_dirs: [/config/]
   #customize: !include customize.yaml
 
-# Text to speech
-tts:
-  - platform: google_translate
+# Automation
+automation: !include automations.yaml
 
-# Belkin Wemo support
-wemo:
-  discovery: true
+browser_mod:
+
+# Cover MyQ garage doors and openers
+cover:
+  - platform: myq
+    username: !secret myq_username
+    password: !secret myq_password
+
+# Ecowitt weather station
+ecowitt:
+  port: !secret ecowitt_port
+  barounit: metric
+  windunit: imperial
+  rainunit: imperial
+  windchillunit: hybrid
+
+# Google calendar
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+# Groups
+group: !include groups.yaml
 
 # Pushover notifications
 notify:
@@ -27,24 +46,21 @@ notify:
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+# Scenes
 scene: !include scenes.yaml
 
-browser_mod:
+# Scripts
+script: !include scripts.yaml
 
-google:
-  client_id: !secret google_client_id
-  client_secret: !secret google_client_secret
+# Text to speech
+tts:
+  - platform: google_translate
 
-ecowitt:
-  port: !secret ecowitt_port
-  barounit: metric
-  windunit: imperial
-  rainunit: imperial
-  windchillunit: hybrid
+# Belkin Wemo
+wemo:
+  discovery: true
 
+# Lovelace dashboards
 lovelace:
   mode: storage
   resources:
@@ -66,8 +82,3 @@ lovelace:
       icon: mdi:tablet-dashboard
       show_in_sidebar: true
       filename: ui-tablet.yaml
-
-cover:
-  - platform: myq
-    username: !secret myq_username
-    password: !secret myq_password
