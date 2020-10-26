@@ -140,11 +140,11 @@ sensor:
 
           {% if is_state('cover.atrium_sliding_door', 'open') %}
           Atrium is open
-          {% end %}
+          {% endif %}
 
           {% if is_state('cover.garage_door', 'open') %}
           <b>Garage door is open</b>
-          {% end %}
+          {% endif %}
 
       sidebar_vacuum:
         value_template: >
