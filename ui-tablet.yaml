@@ -124,7 +124,7 @@ views:
                   - type: entities
                     show_header_toggle: false
                     entities:
-                      - entity: lock.schlage_front_door_locked
+                      - entity: lock.schlage_locked_front_door
                         name: Front
                       - entity: sensor.placeholder
                       - entity: sensor.placeholder
