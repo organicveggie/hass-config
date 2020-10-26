@@ -75,6 +75,7 @@
     device_id: c533d733108c11eb8e12bd20fc718008
     entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
     domain: switch
+  - scene: scene.house_locked_up
   mode: single
 - id: '1602948908812'
   alias: Everything off weekend
@@ -93,6 +94,7 @@
     device_id: c533d733108c11eb8e12bd20fc718008
     entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
     domain: switch
+  - scene: scene.house_locked_up
   mode: single
 - id: '1602948968328'
   alias: Turn lights off weekend morning
