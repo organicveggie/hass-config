@@ -85,4 +85,9 @@
       supported_features: 3
       device_class: garage
       state: closed
+    cover.garage_door:
+      friendly_name: Garage door
+      supported_features: 3
+      device_class: garage
+      state: closed
   icon: mdi:lock
