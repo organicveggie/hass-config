@@ -7,6 +7,8 @@ sensor:
       - /config/home-assistant_v2.db
       - /config/home-assistant.log
 
+  platform: moon
+
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
