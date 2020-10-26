@@ -7,7 +7,7 @@ sensor:
       - /config/home-assistant_v2.db
       - /config/home-assistant.log
 
-  platform: moon
+  - platform: moon
 
   - platform: systemmonitor
     resources:
@@ -137,6 +137,14 @@ sensor:
           {% else %} 
           <font color='#6a7377'>Everything is off</font> 
           {% endif %}
+
+          {% if is_state('cover.atrium_sliding_door', 'open') %}
+          Atrium is open
+          {% end %}
+
+          {% if is_state('cover.garage_door', 'open') %}
+          <b>Garage door is open</b>
+          {% end %}
 
       sidebar_vacuum:
         value_template: >
