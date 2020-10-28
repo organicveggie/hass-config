@@ -15,8 +15,6 @@ homeassistant:
 # Automation
 automation: !include automations.yaml
 
-binary_sensor: !include binary_sensors.yaml
-
 browser_mod:
 
 # Cover MyQ garage doors and openers
@@ -40,8 +38,6 @@ google:
 
 # Groups
 group: !include groups.yaml
-
-input_boolean: !include inputs.yaml
 
 # Pushover notifications
 notify:
