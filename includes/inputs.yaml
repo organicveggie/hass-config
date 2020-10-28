@@ -1,9 +1,10 @@
-# Used by Lock Manager
-allow_automation_execution:
-  name: 'Allow Automation'
-  initial: off
+input_boolean:
+  # Used by Lock Manager
+  allow_automation_execution:
+    name: 'Allow Automation'
+    initial: off
 
-# Used by Lock Manager
-system_ready:
-  name: 'System Ready'
-  initial: off
+  # Used by Lock Manager
+  system_ready:
+    name: 'System Ready'
+    initial: off
