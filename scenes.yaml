@@ -31,63 +31,63 @@
       friendly_name: Floor lamp
       supported_features: 41
       state: 'off'
-- id: '1603688752127'
-  name: House locked up
-  entities:
-    zwave.schlage_front_door:
-      node_id: 5
-      node_name: Schlage (Allegion) BE469ZP Connect Smart Deadbolt
-      manufacturer_name: Schlage (Allegion)
-      product_name: BE469ZP Connect Smart Deadbolt
-      query_stage: Complete
-      is_awake: true
-      is_ready: true
-      is_failed: false
-      is_info_received: true
-      max_baud_rate: 40000
-      is_zwave_plus: true
-      capabilities:
-      - beaming
-      - routing
-      - frequent
-      - zwave_plus
-      neighbors:
-      - 1
-      - 6
-      - 7
-      sentCnt: 25
-      sentFailed: 0
-      retries: 0
-      receivedCnt: 25
-      receivedDups: 0
-      receivedUnsolicited: 5
-      sentTS: '2020-10-25 19:35:35:343 '
-      receivedTS: '2020-10-25 19:35:16:499 '
-      lastRequestRTT: 1445
-      averageRequestRTT: 1863
-      lastResponseRTT: 1162
-      averageResponseRTT: 865
-      battery_level: 84
-      application_version: '3.03'
-      friendly_name: Schlage Front Door
-      state: ready
-    lock.schlage_locked_front_door:
-      node_id: 5
-      value_index: 0
-      value_instance: 1
-      value_id: '72057594127613952'
-      notification: Manual Lock
-      lock_status: Manually Locked by Key Cylinder or Inside thumb turn
-      friendly_name: Schlage Front Door Locked
-      state: locked
-    cover.atrium_sliding_door:
-      friendly_name: Atrium sliding door
-      supported_features: 3
-      device_class: garage
-      state: closed
-    cover.garage_door:
-      friendly_name: Garage door
-      supported_features: 3
-      device_class: garage
-      state: closed
-  icon: mdi:lock
+# - id: '1603688752127'
+#   name: House locked up
+#   entities:
+#     zwave.schlage_front_door:
+#       node_id: 5
+#       node_name: Schlage (Allegion) BE469ZP Connect Smart Deadbolt
+#       manufacturer_name: Schlage (Allegion)
+#       product_name: BE469ZP Connect Smart Deadbolt
+#       query_stage: Complete
+#       is_awake: true
+#       is_ready: true
+#       is_failed: false
+#       is_info_received: true
+#       max_baud_rate: 40000
+#       is_zwave_plus: true
+#       capabilities:
+#       - beaming
+#       - routing
+#       - frequent
+#       - zwave_plus
+#       neighbors:
+#       - 1
+#       - 6
+#       - 7
+#       sentCnt: 25
+#       sentFailed: 0
+#       retries: 0
+#       receivedCnt: 25
+#       receivedDups: 0
+#       receivedUnsolicited: 5
+#       sentTS: '2020-10-25 19:35:35:343 '
+#       receivedTS: '2020-10-25 19:35:16:499 '
+#       lastRequestRTT: 1445
+#       averageRequestRTT: 1863
+#       lastResponseRTT: 1162
+#       averageResponseRTT: 865
+#       battery_level: 84
+#       application_version: '3.03'
+#       friendly_name: Schlage Front Door
+#       state: ready
+#     lock.schlage_locked_front_door:
+#       node_id: 5
+#       value_index: 0
+#       value_instance: 1
+#       value_id: '72057594127613952'
+#       notification: Manual Lock
+#       lock_status: Manually Locked by Key Cylinder or Inside thumb turn
+#       friendly_name: Schlage Front Door Locked
+#       state: locked
+#     cover.atrium_sliding_door:
+#       friendly_name: Atrium sliding door
+#       supported_features: 3
+#       device_class: garage
+#       state: closed
+#     cover.garage_door:
+#       friendly_name: Garage door
+#       supported_features: 3
+#       device_class: garage
+#       state: closed
+#   icon: mdi:lock
