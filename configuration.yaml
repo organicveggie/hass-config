@@ -14,7 +14,7 @@ homeassistant:
 
 # Automation
 automation: !include automations.yaml
-a
+
 browser_mod:
 
 # Cover MyQ garage doors and openers
