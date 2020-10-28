@@ -6,4 +6,4 @@ binary_sensor:
   system_ready:
     friendly_name: "System ready"
     value_template: "{{ is_state('input_boolean.system_ready', 'on') }}"
-    device_class: moving:
+    device_class: moving: moving
