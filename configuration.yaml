@@ -64,15 +64,27 @@ wemo:
 lovelace:
   mode: storage
   resources:
+    - url: /local/community/atomic-calendar-revive/atomic-calendar-revive.js
+      type: module
     - url: /local/community/bar-card/bar-card.js
+      type: module
+    - url: /local/community/button-card/button-card.js
+      type: module
+    - url: /local/community/lovelace-auto-entities/auto-entities.js
       type: module
     - url: /local/community/lovelace-card-mod/card-mod.js
       type: module
+    - url: /local/community/lovelace-card-tools/card-tools.js
+      type: module
+    - url: /local/community/lovelace-fold-entity-row/fold-entity-row.js
+      type: module
     - url: /local/community/lovelace-hui-element/hui-element.js
+      type: module
+    - url: /local/community/lovelace-layout-card/layout-card.js
       type: module
     - url:  /local/community/mini-graph-card/mini-graph-card-bundle.js
       type: module
-    - url: /local/community/lovelace-layout-card/layout-card.js
+    - url: /local/community/secondaryinfo-entity-row/secondaryinfo-entity-row.js
       type: module
   # Add yaml dashboards
   dashboards:

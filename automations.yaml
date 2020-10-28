@@ -164,3 +164,39 @@
     entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
     domain: switch
   mode: single
+
+- alias: homeassistant start-up
+  initial_state: true
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.system_ready
+    - service: input_boolean.turn_off
+      entity_id: 'input_boolean.allow_automation_execution'
+
+- alias: open_zwave_network_down
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ozw_network_status
+      to: "off"
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.allow_automation_execution
+
+- alias: open_zwave_network_up
+  initial_state: true
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: binary_sensor.ozw_network_status
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.ozw_network_status
+      state: "on"
+  action:
+    - service: script.system_startup_cleanup

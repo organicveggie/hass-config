@@ -1,0 +1,11 @@
+# feel free to add post startup calls here
+system_startup_cleanup:
+  sequence:
+    - condition: state
+      entity_id: 'input_boolean.system_ready'
+      state: 'off' 
+    - service: homekit.start
+    - service: input_boolean.turn_on
+      entity_id: 'input_boolean.allow_automation_execution'
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.system_ready
