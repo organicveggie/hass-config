@@ -76,6 +76,11 @@ lovelace:
       type: module
   # Add yaml dashboards
   dashboards:
+    locks-yaml:
+      mode: yaml
+      title: Locks
+      icon: mdi:door-closed-lock
+      filename: ui-lock-manager.yaml
     tablet-yaml:
       mode: yaml
       title: Tablet
