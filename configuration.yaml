@@ -39,6 +39,9 @@ google:
 # Groups
 group: !include groups.yaml
 
+# Enable logging controls
+logger:
+
 # Pushover notifications
 notify:
   - name: pushover_notify_hass
