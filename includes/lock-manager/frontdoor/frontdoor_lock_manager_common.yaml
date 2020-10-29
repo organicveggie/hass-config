@@ -9,9 +9,6 @@
 ############  timer:  #####################  
 timer:
 
-  frontdoor_update_user_codes:
-    duration: '00:00:20'
-    
   frontdoor_refresh_lock_node:
     duration: '00:05:00'
 
@@ -129,30 +126,6 @@ script:
 
 ###################  automation:  ####################
 automation:
-  # - alias: frontdoor-ac-uc-sensors_last_changed_update
-  #   initial_state: false
-  #   trigger:
-  #     - platform: time_pattern
-  #       seconds: '/1'
-  #   action:
-  #     - service: homeassistant.update_entity
-  #       entity_id:
-  #         - sensor.frontdoor_ac_last_changed
-  #         - sensor.frontdoor_uc_last_changed
-
-
-  - alias: frontdoor_update_user_codes_finished
-    trigger:
-      platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.frontdoor_update_user_codes
-    condition:
-      - condition: state
-        entity_id: "binary_sensor.allow_automation"
-        state: "on"
-    action:
-      - service: script.frontdoor_refresh_codes
           
   - alias: frontdoor_refresh_lock_node_finished
     trigger:

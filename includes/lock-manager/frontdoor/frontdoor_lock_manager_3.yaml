@@ -176,14 +176,10 @@ automation:
       state: "on"
     - condition: template
       value_template: >-
-         {{ states('timer.frontdoor_update_user_codes') == 'active' }} 
-    - condition: template
-      value_template: >-
         {{ states('sensor.connected_frontdoor_3') | lower in ['disconnected','connected'] }} 
   action:
     - service: timer.cancel
       entity_id:
-        - timer.frontdoor_update_user_codes
         - timer.frontdoor_refresh_lock_node
 
 - alias: synchronize_codeslot_frontdoor_3
@@ -193,7 +189,7 @@ automation:
       entity_id: "binary_sensor.pin_synched_frontdoor_3"
       to: 'off'
     - platform: time_pattern
-      seconds: "/10"      
+      seconds: "/5"      
   condition:
     - condition: state
       entity_id: "binary_sensor.allow_automation"
@@ -212,14 +208,10 @@ automation:
                 {{ states('sensor.connected_frontdoor_3') | lower in ['disconnecting','connecting'] }} 
             - condition: template
               value_template: >-
-                 {{ states('timer.frontdoor_update_user_codes') != 'active' }} 
+                {{ states('timer.frontdoor_refresh_lock_node') != 'active' }} 
           sequence:
-            # - service: persistent_notification.create
-            #   data_template:
-            #     title: 3
-            #     message: '3 start timer: {{ now() }}'
             - service: timer.start
-              entity_id: timer.frontdoor_update_user_codes
+              entity_id: timer.frontdoor_refresh_lock_node
     - choose:
         - conditions:
             - condition: template
