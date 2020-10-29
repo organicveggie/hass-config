@@ -25,22 +25,22 @@
               - entity: input_boolean.enabled_frontdoor_1
               - entity: input_boolean.notify_frontdoor_1
               - type: divider
-              - entity: binary_sensor.active_frontdoor_1
+              - entity: sensor.connected_frontdoor_1
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_1
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_1
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_1
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -102,22 +102,22 @@
               - entity: input_boolean.enabled_frontdoor_2
               - entity: input_boolean.notify_frontdoor_2
               - type: divider
-              - entity: binary_sensor.active_frontdoor_2
+              - entity: sensor.connected_frontdoor_2
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_2
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_2
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_2
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -179,22 +179,22 @@
               - entity: input_boolean.enabled_frontdoor_3
               - entity: input_boolean.notify_frontdoor_3
               - type: divider
-              - entity: binary_sensor.active_frontdoor_3
+              - entity: sensor.connected_frontdoor_3
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_3
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_3
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_3
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -256,22 +256,22 @@
               - entity: input_boolean.enabled_frontdoor_4
               - entity: input_boolean.notify_frontdoor_4
               - type: divider
-              - entity: binary_sensor.active_frontdoor_4
+              - entity: sensor.connected_frontdoor_4
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_4
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_4
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_4
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -333,22 +333,22 @@
               - entity: input_boolean.enabled_frontdoor_5
               - entity: input_boolean.notify_frontdoor_5
               - type: divider
-              - entity: binary_sensor.active_frontdoor_5
+              - entity: sensor.connected_frontdoor_5
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_5
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_5
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_5
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -410,22 +410,22 @@
               - entity: input_boolean.enabled_frontdoor_6
               - entity: input_boolean.notify_frontdoor_6
               - type: divider
-              - entity: binary_sensor.active_frontdoor_6
+              - entity: sensor.connected_frontdoor_6
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_6
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_6
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_6
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -487,22 +487,22 @@
               - entity: input_boolean.enabled_frontdoor_7
               - entity: input_boolean.notify_frontdoor_7
               - type: divider
-              - entity: binary_sensor.active_frontdoor_7
+              - entity: sensor.connected_frontdoor_7
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_7
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_7
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_7
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -564,22 +564,22 @@
               - entity: input_boolean.enabled_frontdoor_8
               - entity: input_boolean.notify_frontdoor_8
               - type: divider
-              - entity: binary_sensor.active_frontdoor_8
+              - entity: sensor.connected_frontdoor_8
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_8
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_8
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_8
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -641,22 +641,22 @@
               - entity: input_boolean.enabled_frontdoor_9
               - entity: input_boolean.notify_frontdoor_9
               - type: divider
-              - entity: binary_sensor.active_frontdoor_9
+              - entity: sensor.connected_frontdoor_9
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_9
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_9
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_9
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
@@ -718,22 +718,22 @@
               - entity: input_boolean.enabled_frontdoor_10
               - entity: input_boolean.notify_frontdoor_10
               - type: divider
-              - entity: binary_sensor.active_frontdoor_10
+              - entity: sensor.connected_frontdoor_10
                 state_color: true
-              - type: divider
-
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
                   label: Debug
-                open: true
+                open: false
                 entities:
+                - entity: binary_sensor.active_frontdoor_10
+                  state_color: true
+                - type: divider
                 - entity: sensor.frontdoor_code_slot_10
                   state_color: true
                 - type: divider
                 - entity: binary_sensor.pin_synched_frontdoor_10
                   state_color: true
-              - type: divider
               - type: 'custom:fold-entity-row'
                 head:
                   type: section
