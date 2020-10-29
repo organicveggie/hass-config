@@ -41,6 +41,10 @@ group: !include groups.yaml
 
 # Enable logging controls
 logger:
+  default: error
+  logs:
+    # Enable debug logging for Lock Manager
+    custom_components.lock-manager: debug
 
 # Pushover notifications
 notify:
