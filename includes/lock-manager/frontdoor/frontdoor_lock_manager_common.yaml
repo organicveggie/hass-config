@@ -10,7 +10,7 @@
 timer:
 
   frontdoor_refresh_lock_node:
-    duration: '00:05:00'
+    duration: '00:15:00'
 
 ###############  input_text:  #################
 input_text:
@@ -153,7 +153,7 @@ automation:
         data_template:
           entity_id: input_number.frontdoor_lock_command
           value: >-
-            {{ states.sensor.schlage_be469zp_access_control_frontdoor.state | int}}
+            {{ states('sensor.schlage_be469zp_access_control_frontdoor') | int}}
 
   - alias: frontdoor User Command
     trigger:
