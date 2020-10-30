@@ -43,8 +43,8 @@ group: !include groups.yaml
 logger:
   default: error
   logs:
-    # Enable debug logging for Lock Manager
-    custom_components.lock-manager: debug
+    # Enable warn logging for Lock Manager
+    custom_components.lock-manager: warn
 
 # Pushover notifications
 notify:
