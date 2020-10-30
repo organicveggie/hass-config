@@ -100,6 +100,7 @@ lovelace:
       title: Locks
       icon: mdi:door-closed-lock
       filename: ui-lock-manager.yaml
+      require_admin: true
     tablet-yaml:
       mode: yaml
       title: Tablet
