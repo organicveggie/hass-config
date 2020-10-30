@@ -1,0 +1,93 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    badges:
+      - entity: binary_sensor.updater
+      - entity: person.sean_laurent
+      - entity: sun.sun
+    cards:
+      - type: media-control
+        entity: media_player.bonus_room
+      - type: media-control
+        entity: media_player.bonus_room_tv
+      - type: entities
+        entities:
+          - light.dining_room_light
+        title: Dining Room
+      - type: media-control
+        entity: media_player.dining_room
+      - type: entities
+        entities:
+          - light.wine_fridge
+        title: Garage
+      - type: media-control
+        entity: media_player.garage
+      - type: media-control
+        entity: media_player.kitchen_display
+      - type: entities
+        entities:
+          - remote.harmony_hub
+          - light.floor_lamp
+          - light.end_table_lamp
+        title: Living Room
+      - type: media-control
+        entity: media_player.master_bedroom
+      - type: media-control
+        entity: media_player.master_bedroom_speaker
+      - type: entities
+        entities:
+          - light.back_door
+          - light.bonus_room
+          - light.dining_room
+          - light.front_door
+          - light.living_room
+        title: Light
+      - type: weather-forecast
+        entity: weather.home
+      - type: weather-forecast
+        entity: weather.home_hourly
+  - title: Temp
+    path: temp
+    badges: []
+    cards:
+      - type: sensor
+        graph: line
+        entity: sensor.indoor_temperature
+        name: Indoor Temp
+        detail: 1
+        hours_to_show: 8
+      - type: sensor
+        entity: sensor.indoor_humidity
+        graph: line
+        name: Indoor Humidity
+        hours_to_show: 8
+      - type: sensor
+        entity: sensor.outdoor_temperature
+        graph: line
+        name: Outdoor Temperature
+        hours_to_show: 8
+      - type: sensor
+        graph: line
+        entity: sensor.humidity
+        name: Outdoor Humidity
+        hours_to_show: 8
+      - type: sensor
+        graph: line
+        entity: sensor.temperature_1
+        name: Garage Temp
+      - type: sensor
+        graph: line
+        entity: sensor.humidity_1
+        name: Garage Humidity
+      - type: glance
+        entities:
+          - entity: sensor.indoor_temperature
+          - entity: sensor.indoor_humidity
+        title: Indoors
+      - type: history-graph
+        entities:
+          - entity: sensor.outdoor_temperature
+          - entity: sensor.humidity
+        refresh_interval: 0
+        hours_to_show: 24

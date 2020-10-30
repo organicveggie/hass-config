@@ -69,7 +69,7 @@ wemo:
 
 # Lovelace dashboards
 lovelace:
-  mode: storage
+  mode: yaml
   resources:
     - url: /local/community/atomic-calendar-revive/atomic-calendar-revive.js
       type: module
@@ -95,11 +95,19 @@ lovelace:
       type: module
   # Add yaml dashboards
   dashboards:
+    lovelace-generated: # Needs to contain a hyphen (-)
+      mode: yaml
+      filename: notexist.yaml
+      title: Generated
+      icon: mdi:tools
+      show_in_sidebar: true
+      require_admin: true
     locks-yaml:
       mode: yaml
       title: Locks
       icon: mdi:door-closed-lock
       filename: ui-lock-manager.yaml
+      show_in_sidebar: true
       require_admin: true
     tablet-yaml:
       mode: yaml
@@ -107,3 +115,9 @@ lovelace:
       icon: mdi:tablet-dashboard
       show_in_sidebar: true
       filename: ui-tablet.yaml
+    test-yaml:
+      mode: yaml
+      title: Test
+      icon: mdi:test-tube
+      show_in_sidebar: true
+      filename: ui-test.yaml
