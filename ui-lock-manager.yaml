@@ -9,8 +9,6 @@ views:
       - input_boolean.frontdoor_garageacess_notifications
       - entity: >-
           lock.schlage_be469zp_locked_frontdoor
-      - entity: >-
-          binary_sensor.fake
       - entity: input_text.frontdoor_status_report
     cards:
       - type: vertical-stack
