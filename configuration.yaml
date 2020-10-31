@@ -95,13 +95,6 @@ lovelace:
       type: module
   # Add yaml dashboards
   dashboards:
-    lovelace-generated: # Needs to contain a hyphen (-)
-      mode: yaml
-      filename: notexist.yaml
-      title: Generated
-      icon: mdi:tools
-      show_in_sidebar: true
-      require_admin: true
     locks-yaml:
       mode: yaml
       title: Locks
