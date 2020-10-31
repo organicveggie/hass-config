@@ -199,7 +199,7 @@ automation:
       state: "off"
     - condition: template
       value_template: >-
-        {{ states("sensor.frontdoor_code_slot_7") != "unknown" }}
+        {{ states("sensor.frontdoor_code_slot_7") != "unknown" and states("sensor.frontdoor_code_slot_7") != "unavailable" }}
   action:
     - choose:
         - conditions:
