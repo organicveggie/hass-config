@@ -57,10 +57,12 @@ views:
                     name: Temp
                     show_state: true
                   - entity: sensor.humidity
+                    name: Humidity
                     show_state: true
                     y_axis: true
                 show:
                   labels: true
+                  labels_secondary: true
               - type: custom:mini-graph-card
                 name: Garage
                 entities:
@@ -73,6 +75,7 @@ views:
                     y_axis: true
                 show:
                   labels: true
+                  labels_secondary: true
               - type: custom:mini-graph-card
                 name: Wine
                 entities:
@@ -85,6 +88,7 @@ views:
                     y_axis: true
                 show:
                   labels: true
+                  labels_secondary: true
               - break
               - type: custom:mini-graph-card
                 name: Atrium
@@ -98,6 +102,7 @@ views:
                     y_axis: true
                 show:
                   labels: true
+                  labels_secondary: true
               - type: custom:mini-graph-card
                 name: Kitchen
                 entities:
@@ -110,6 +115,7 @@ views:
                     y_axis: true
                 show:
                   labels: true
+                  labels_secondary: true
               - type: custom:mini-graph-card
                 name: Master Bedroom
                 entities:
@@ -122,3 +128,4 @@ views:
                     y_axis: true
                 show:
                   labels: true
+                  labels_secondary: true
