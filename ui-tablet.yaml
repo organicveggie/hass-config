@@ -54,13 +54,13 @@ views:
                 cards:
                   - type: markdown
                     content: >
-                      DINING ROOM
+                      INDOOR LIGHTS
                   - type: entities
                     show_header_toggle: false
                     entities:
                       - entity: light.dining_room_light
                         name: Buffet
-                      - entity: sensor.placeholder
+                      - entity: group.livingroom_lights
               - type: vertical-stack
                 cards:
                   - type: markdown
