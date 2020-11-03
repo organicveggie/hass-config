@@ -1,0 +1,5 @@
+- platform: group
+  name: Living Room Lights
+  entities:
+    - light.end_table_lamp
+    - light.floor_lamp

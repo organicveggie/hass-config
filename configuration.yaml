@@ -39,6 +39,9 @@ google:
 # Groups
 group: !include groups.yaml
 
+# Light Groups
+light: !include light-groups.yaml
+
 # Enable logging controls
 logger:
   default: error

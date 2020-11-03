@@ -60,7 +60,7 @@ views:
                     entities:
                       - entity: light.dining_room_light
                         name: Buffet
-                      - entity: group.livingroom_lights
+                      - entity: light.living_room_lights
               - type: vertical-stack
                 cards:
                   - type: markdown
