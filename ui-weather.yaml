@@ -190,3 +190,8 @@ views:
                       - type: markdown
                         content: >
                           {{ states('sensor.wind_gust') }}
+              - typoe: custom:compass-card
+                entity: sensor.wind_direction
+                secondary_entity: sensor.wind_speed
+                compass:
+                  indicator: arrow_inward
