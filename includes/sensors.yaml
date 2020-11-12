@@ -185,40 +185,41 @@ sensor:
       ##########
       # Weather
       ##########
-      weather_wind_direction:
+      weather_wind_direction_direction:
         value_template: >
-          {% if sensor.wind_direction < 12 %}
+          {% set wind_direction = states('sensor.wind_direction') %}
+          {% if wind_direction < 12 %}
             N
-          {% elif sensor.wind_direction >= 12 and sensor.wind_direction < 34 %}
+          {% elif wind_direction >= 12 and wind_direction < 34 %}
             NNE
-          {% elif sensor.wind_direction >= 34 and sensor.wind_direction < 56 %}
+          {% elif wind_direction >= 34 and wind_direction < 56 %}
             NE
-          {% elif sensor.wind_direction >= 56 and sensor.wind_direction < 78 %}
+          {% elif wind_direction >= 56 and wind_direction < 78 %}
             ENE
-          {% elif sensor.wind_direction >= 78 and sensor.wind_direction < 102 %}
+          {% elif wind_direction >= 78 and wind_direction < 102 %}
             E
-          {% elif sensor.wind_direction >= 102 and sensor.wind_direction < 124 %}
+          {% elif wind_direction >= 102 and wind_direction < 124 %}
             ESE
-          {% elif sensor.wind_direction >= 124 and sensor.wind_direction < 146 %}
+          {% elif wind_direction >= 124 and wind_direction < 146 %}
             SE
-          {% elif sensor.wind_direction >= 146 and sensor.wind_direction < 168 %}
+          {% elif wind_direction >= 146 and wind_direction < 168 %}
             SSE
-          {% elif sensor.wind_direction >= 168 and sensor.wind_direction < 192 %}
+          {% elif wind_direction >= 168 and wind_direction < 192 %}
             S
-          {% elif sensor.wind_direction >= 192 and sensor.wind_direction < 214 %}
+          {% elif wind_direction >= 192 and wind_direction < 214 %}
             SSW
-          {% elif sensor.wind_direction >= 214 and sensor.wind_direction < 236 %}
+          {% elif wind_direction >= 214 and wind_direction < 236 %}
             SW
-          {% elif sensor.wind_direction >= 236 and sensor.wind_direction < 258 %}
+          {% elif wind_direction >= 236 and wind_direction < 258 %}
             WSW
-          {% elif sensor.wind_direction >= 258 and sensor.wind_direction < 282 %}
+          {% elif wind_direction >= 258 and wind_direction < 282 %}
             W
-          {% elif sensor.wind_direction >= 282 and sensor.wind_direction < 304 %}
+          {% elif wind_direction >= 282 and wind_direction < 304 %}
             WNW
-          {% elif sensor.wind_direction >= 304 and sensor.wind_direction < 326 %}
+          {% elif wind_direction >= 304 and wind_direction < 326 %}
             NW
-          {% elif sensor.wind_direction >= 326 and sensor.wind_direction < 348 %}
+          {% elif wind_direction >= 326 and wind_direction < 348 %}
             NNW
-          {% elif sensor.wind_direction >= 348 %}
+          {% elif wind_direction >= 348 %}
             N
           {% endif %}
