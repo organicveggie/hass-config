@@ -129,3 +129,30 @@ views:
                 show:
                   labels: true
                   labels_secondary: true
+              - break
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      Wind
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.weather_wind_direction
+                        name: Direction
+                      - entity: sensor.wind_speed
+                        name: Speed
+                      - entity: sensor.wind_gust
+                        name: Gust
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      Rainfall
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.hourly_rain_rate
+                        name: Rate / hr
+                      - entity: sensor.daily_rain_rate
+                        name: Daily
