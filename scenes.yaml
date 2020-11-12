@@ -31,6 +31,27 @@
       friendly_name: Floor lamp
       supported_features: 41
       state: 'off'
+- name: Living Room Movie
+  entities:
+    light.floor_lamp:
+      brightness: 128
+      friendly_name: Floor lamp
+      state: 'on'
+    light.end_table_lamp:
+      brightness: 128
+      friendly_name: End table lamp
+      state: 'on'
+- name: Living Room Normal
+  entities:
+    light.floor_lamp:
+      brightness: 255
+      friendly_name: Floor lamp
+      state: 'on'
+    light.end_table_lamp:
+      brightness: 255
+      friendly_name: End table lamp
+      state: 'on'
+
 # - id: '1603688752127'
 #   name: House locked up
 #   entities:
