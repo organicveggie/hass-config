@@ -187,7 +187,7 @@ sensor:
       ##########
       weather_wind_direction_direction:
         value_template: >
-          {% set wind_direction = states('sensor.wind_direction') %}
+          {% set wind_direction = int(states('sensor.wind_direction')) %}
           {% if wind_direction < 12 %}
             N
           {% elif wind_direction >= 12 and wind_direction < 34 %}
