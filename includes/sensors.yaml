@@ -187,56 +187,38 @@ sensor:
       ##########
       weather_wind_direction:
         value_template: >
-          {#
-              0     N
-              22.5  NNE
-              45    NE
-              67.5  ENE
-              90    E
-              112.5 ESE
-              135   SE
-              157.5 SSE
-              180   S
-              202.5 SSW
-              225   SW
-              247.5 WSW
-              270   W
-              292.5 WNW
-              315   NW
-              337.5 NNW
-          #}
           {% if sensor.wind_direction < 12 %}
             N
-          {% else if sensor.wind_direction >= 12 and sensor.wind_direction < 34 %}
+          {% elif sensor.wind_direction >= 12 and sensor.wind_direction < 34 %}
             NNE
-          {% else if sensor.wind_direction >= 34 and sensor.wind_direction < 56 %}
+          {% elif sensor.wind_direction >= 34 and sensor.wind_direction < 56 %}
             NE
-          {% else if sensor.wind_direction >= 56 and sensor.wind_direction < 78 %}
+          {% elif sensor.wind_direction >= 56 and sensor.wind_direction < 78 %}
             ENE
-          {% else if sensor.wind_direction >= 78 and sensor.wind_direction < 102 %}
+          {% elif sensor.wind_direction >= 78 and sensor.wind_direction < 102 %}
             E
-          {% else if sensor.wind_direction >= 102 and sensor.wind_direction < 124 %}
+          {% elif sensor.wind_direction >= 102 and sensor.wind_direction < 124 %}
             ESE
-          {% else if sensor.wind_direction >= 124 and sensor.wind_direction < 146 %}
+          {% elif sensor.wind_direction >= 124 and sensor.wind_direction < 146 %}
             SE
-          {% else if sensor.wind_direction >= 146 and sensor.wind_direction < 168 %}
+          {% elif sensor.wind_direction >= 146 and sensor.wind_direction < 168 %}
             SSE
-          {% else if sensor.wind_direction >= 168 and sensor.wind_direction < 192 %}
+          {% elif sensor.wind_direction >= 168 and sensor.wind_direction < 192 %}
             S
-          {% else if sensor.wind_direction >= 192 and sensor.wind_direction < 214 %}
+          {% elif sensor.wind_direction >= 192 and sensor.wind_direction < 214 %}
             SSW
-          {% else if sensor.wind_direction >= 214 and sensor.wind_direction < 236 %}
+          {% elif sensor.wind_direction >= 214 and sensor.wind_direction < 236 %}
             SW
-          {% else if sensor.wind_direction >= 236 and sensor.wind_direction < 258 %}
+          {% elif sensor.wind_direction >= 236 and sensor.wind_direction < 258 %}
             WSW
-          {% else if sensor.wind_direction >= 258 and sensor.wind_direction < 282 %}
+          {% elif sensor.wind_direction >= 258 and sensor.wind_direction < 282 %}
             W
-          {% else if sensor.wind_direction >= 282 and sensor.wind_direction < 304 %}
+          {% elif sensor.wind_direction >= 282 and sensor.wind_direction < 304 %}
             WNW
-          {% else if sensor.wind_direction >= 304 and sensor.wind_direction < 326 %}
+          {% elif sensor.wind_direction >= 304 and sensor.wind_direction < 326 %}
             NW
-          {% else if sensor.wind_direction >= 326 and sensor.wind_direction < 348 %}
+          {% elif sensor.wind_direction >= 326 and sensor.wind_direction < 348 %}
             NNW
-          {% else if sensor.wind_direction >= 348 %}
+          {% elif sensor.wind_direction >= 348 %}
             N
           {% endif %}
