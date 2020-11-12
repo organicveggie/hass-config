@@ -58,6 +58,7 @@ DATA_PASSKEY = "PASSKEY"
 DATA_STATIONTYPE = "stationtype"
 DATA_FREQ = "freq"
 DATA_MODEL = "model"
+DATA_READY = "ready"
 
 CONF_UNIT_BARO = "barounit"
 CONF_UNIT_WIND = "windunit"
@@ -95,9 +96,12 @@ TYPE_HUMIDITY7 = "humidity7"
 TYPE_HUMIDITY8 = "humidity8"
 TYPE_HUMIDITYIN = "humidityin"
 TYPE_WINDDIR = "winddir"
+TYPE_WINDDIR_A10 = "winddir_avg10m"
 TYPE_WINDSPEEDKMH = "windspeedkmh"
+TYPE_WINDSPEEDKMH_A10 = "windspdkmh_avg10m"
 TYPE_WINDGUSTKMH = "windgustkmh"
 TYPE_WINDSPEEDMPH = "windspeedmph"
+TYPE_WINDSPEEDMPH_A10 = "windspdmph_avg10m"
 TYPE_WINDGUSTMPH = "windgustmph"
 TYPE_MAXDAILYGUST = "maxdailygust"
 TYPE_MAXDAILYGUSTKMH = "maxdailygustkmh"
@@ -112,6 +116,15 @@ TYPE_TEMP6C = "temp6c"
 TYPE_TEMP7C = "temp7c"
 TYPE_TEMP8C = "temp8c"
 TYPE_DEWPOINTC = "dewpointc"
+TYPE_DEWPOINTINC = "dewpointinc"
+TYPE_DEWPOINT1C = "dewpoint1c"
+TYPE_DEWPOINT2C = "dewpoint2c"
+TYPE_DEWPOINT3C = "dewpoint3c"
+TYPE_DEWPOINT4C = "dewpoint4c"
+TYPE_DEWPOINT5C = "dewpoint5c"
+TYPE_DEWPOINT6C = "dewpoint6c"
+TYPE_DEWPOINT7C = "dewpoint7c"
+TYPE_DEWPOINT8C = "dewpoint8c"
 TYPE_WINDCHILLC = "windchillc"
 TYPE_SOLARRADIATION = "solarradiation"
 TYPE_UV = "uv"
@@ -135,6 +148,9 @@ TYPE_WH68BATT = "wh68batt"
 TYPE_WH40BATT = "wh40batt"
 TYPE_WH26BATT = "wh26batt"
 TYPE_WH65BATT = "wh65batt"
+TYPE_WH57BATT = "wh57batt"
+TYPE_WH25BATT = "wh25batt"
+TYPE_WH80BATT = "wh80batt"
 TYPE_SOILBATT1 = "soilbatt1"
 TYPE_SOILBATT2 = "soilbatt2"
 TYPE_SOILBATT3 = "soilbatt3"
@@ -151,6 +167,14 @@ TYPE_BATTERY5 = "batt5"
 TYPE_BATTERY6 = "batt6"
 TYPE_BATTERY7 = "batt7"
 TYPE_BATTERY8 = "batt8"
+TYPE_PM25BATT1 = "pm25batt1"
+TYPE_PM25BATT2 = "pm25batt2"
+TYPE_PM25BATT3 = "pm25batt3"
+TYPE_PM25BATT4 = "pm25batt4"
+TYPE_PM25BATT5 = "pm25batt5"
+TYPE_PM25BATT6 = "pm25batt6"
+TYPE_PM25BATT7 = "pm25batt7"
+TYPE_PM25BATT8 = "pm25batt8"
 
 S_METRIC = 1
 S_IMPERIAL = 2
@@ -238,17 +262,24 @@ SENSOR_TYPES = {
                      "mdi:water-percent", 0),
     TYPE_WINDDIR: ("Wind Direction", DEGREE,
                    TYPE_SENSOR, None, "mdi:water-percent", 0),
+    TYPE_WINDDIR_A10: ("Wind Direction 10m Avg", DEGREE,
+                       TYPE_SENSOR, None, "mdi:water-percent", 0),
     TYPE_WINDSPEEDKMH: ("Wind Speed", SPEED_KILOMETERS_PER_HOUR,
                         TYPE_SENSOR, None, "mdi:weather-windy", S_METRIC),
+    TYPE_WINDSPEEDKMH_A10: ("Wind Speed 10m Avg", SPEED_KILOMETERS_PER_HOUR,
+                            TYPE_SENSOR, None, "mdi:weather-windy", S_METRIC),
     TYPE_WINDGUSTKMH: ("Wind Gust", SPEED_KILOMETERS_PER_HOUR,
                        TYPE_SENSOR, None, "mdi:weather-windy", S_METRIC),
     TYPE_WINDSPEEDMPH: ("Wind Speed", SPEED_MILES_PER_HOUR,
                         TYPE_SENSOR, None, "mdi:weather-windy", S_IMPERIAL),
+    TYPE_WINDSPEEDMPH_A10: ("Wind Speed 10m Avg", SPEED_MILES_PER_HOUR,
+                            TYPE_SENSOR, None, "mdi:weather-windy",
+                            S_IMPERIAL),
     TYPE_WINDGUSTMPH: ("Wind Gust", SPEED_MILES_PER_HOUR,
                        TYPE_SENSOR, None, "mdi:weather-windy", S_IMPERIAL),
     TYPE_MAXDAILYGUST: ("Max Daily Wind Gust", SPEED_MILES_PER_HOUR,
                         TYPE_SENSOR, None, "mdi:weather-windy", S_IMPERIAL),
-    TYPE_MAXDAILYGUSTKMH: ("Max Daily Wind Gust", SPEED_MILES_PER_HOUR,
+    TYPE_MAXDAILYGUSTKMH: ("Max Daily Wind Gust", SPEED_KILOMETERS_PER_HOUR,
                            TYPE_SENSOR, None, "mdi:weather-windy", S_METRIC),
     TYPE_TEMPC: ("Outdoor Temperature", TEMP_CELSIUS,
                  TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE, "mdi:thermometer", 0),
@@ -274,6 +305,33 @@ SENSOR_TYPES = {
     TYPE_DEWPOINTC: ("Dewpoint", TEMP_CELSIUS,
                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
                      "mdi:thermometer", 0),
+    TYPE_DEWPOINTINC: ("Indoor Dewpoint", TEMP_CELSIUS,
+                       TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                       "mdi:thermometer", 0),
+    TYPE_DEWPOINT1C: ("Dewpoint 1", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
+    TYPE_DEWPOINT2C: ("Dewpoint 2", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
+    TYPE_DEWPOINT3C: ("Dewpoint 3", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
+    TYPE_DEWPOINT4C: ("Dewpoint 4", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
+    TYPE_DEWPOINT5C: ("Dewpoint 5", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
+    TYPE_DEWPOINT6C: ("Dewpoint 6", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
+    TYPE_DEWPOINT7C: ("Dewpoint 7", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
+    TYPE_DEWPOINT8C: ("Dewpoint 8", TEMP_CELSIUS,
+                      TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
+                      "mdi:thermometer", 0),
     TYPE_WINDCHILLC: ("Windchill", TEMP_CELSIUS,
                       TYPE_SENSOR, DEVICE_CLASS_TEMPERATURE,
                       "mdi:thermometer", 0),
@@ -334,6 +392,12 @@ SENSOR_TYPES = {
                     None, "mdi:battery", 0),
     TYPE_WH65BATT: ("WH65 Battery", "BATT", TYPE_SENSOR,
                     None, "mdi:battery", 0),
+    TYPE_WH57BATT: ("WH57 Battery", "BATT", TYPE_SENSOR,
+                    None, "mdi:battery", 0),
+    TYPE_WH25BATT: ("WH25 Battery", "BATT", TYPE_SENSOR,
+                    None, "mdi:battery", 0),
+    TYPE_WH80BATT: ("WH80 Battery", "BATT", TYPE_SENSOR,
+                    None, "mdi:battery", 0),
     TYPE_SOILBATT1: ("Soil Moisture 1 Battery", "BATT", TYPE_SENSOR,
                      None, "mdi:battery", 0),
     TYPE_SOILBATT2: ("Soil Moisture 2 Battery", "BATT", TYPE_SENSOR,
@@ -366,6 +430,22 @@ SENSOR_TYPES = {
                     None, "mdi:battery", 0),
     TYPE_BATTERY8: ("Battery 8", "BATT", TYPE_SENSOR,
                     None, "mdi:battery", 0),
+    TYPE_PM25BATT1: ("PM2.5 1 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
+    TYPE_PM25BATT2: ("PM2.5 2 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
+    TYPE_PM25BATT3: ("PM2.5 3 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
+    TYPE_PM25BATT4: ("PM2.5 4 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
+    TYPE_PM25BATT5: ("PM2.5 5 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
+    TYPE_PM25BATT6: ("PM2.5 6 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
+    TYPE_PM25BATT7: ("PM2.5 7 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
+    TYPE_PM25BATT8: ("PM2.5 8 Battery", "BATT", TYPE_SENSOR,
+                     None, "mdi:battery", 0),
 }
 
 IGNORED_SENSORS = [
@@ -382,9 +462,19 @@ IGNORED_SENSORS = [
     'dateutc',
     'windgustms',
     'windspeedms',
+    'windspdms_avg10m',
     'maxdailygustms',
     'windchillf',
     'dewpointf',
+    'dewpointinf',
+    'dewpoint1f',
+    'dewpoint2f',
+    'dewpoint3f',
+    'dewpoint4f',
+    'dewpoint5f',
+    'dewpoint6f',
+    'dewpoint7f',
+    'dewpoint8f',
     DATA_PASSKEY,
     DATA_STATIONTYPE,
     DATA_FREQ,
@@ -422,6 +512,7 @@ async def async_setup(hass: HomeAssistant, config):
     # Store config
     hass.data[DOMAIN][DATA_CONFIG] = conf
     hass.data[DOMAIN][DATA_STATION] = {}
+    hass.data[DOMAIN][DATA_READY] = False
 
     # preload some model info
     stationinfo = hass.data[DOMAIN][DATA_STATION]
@@ -446,72 +537,79 @@ async def async_setup(hass: HomeAssistant, config):
         """ Close the ecowitt server."""
         await ws.stop()
 
-    hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, close_server)
+    # hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, close_server)
 
-    # go to sleep until we get the first report
-    await ws.wait_for_valid_data()
+    # # go to sleep until we get the first report
+    # await ws.wait_for_valid_data()
 
-    # check if we have model info, etc.
-    if DATA_PASSKEY in ws.last_values:
-        stationinfo[DATA_PASSKEY] = ws.last_values[DATA_PASSKEY]
-        ws.last_values.pop(DATA_PASSKEY, None)
-    else:
-        _LOGGER.error("No passkey, cannot set unique id.")
-        return False
-    if DATA_STATIONTYPE in ws.last_values:
-        stationinfo[DATA_STATIONTYPE] = ws.last_values[DATA_STATIONTYPE]
-        ws.last_values.pop(DATA_STATIONTYPE, None)
-    if DATA_FREQ in ws.last_values:
-        stationinfo[DATA_FREQ] = ws.last_values[DATA_FREQ]
-        ws.last_values.pop(DATA_FREQ, None)
-    if DATA_MODEL in ws.last_values:
-        stationinfo[DATA_MODEL] = ws.last_values[DATA_MODEL]
-        ws.last_values.pop(DATA_MODEL, None)
+    async def _first_data_rec(weather_data):
+        _LOGGER.info("First ecowitt data recd, setting up sensors.")
+        # check if we have model info, etc.
+        if DATA_PASSKEY in ws.last_values:
+            stationinfo[DATA_PASSKEY] = ws.last_values[DATA_PASSKEY]
+            ws.last_values.pop(DATA_PASSKEY, None)
+        else:
+            _LOGGER.error("No passkey, cannot set unique id.")
+            return False
+        if DATA_STATIONTYPE in ws.last_values:
+            stationinfo[DATA_STATIONTYPE] = ws.last_values[DATA_STATIONTYPE]
+            ws.last_values.pop(DATA_STATIONTYPE, None)
+        if DATA_FREQ in ws.last_values:
+            stationinfo[DATA_FREQ] = ws.last_values[DATA_FREQ]
+            ws.last_values.pop(DATA_FREQ, None)
+        if DATA_MODEL in ws.last_values:
+            stationinfo[DATA_MODEL] = ws.last_values[DATA_MODEL]
+            ws.last_values.pop(DATA_MODEL, None)
 
-    # load the sensors we have
-    for sensor in ws.last_values.keys():
-        if sensor not in SENSOR_TYPES:
-            if sensor not in IGNORED_SENSORS:
-                _LOGGER.warning("Unhandled sensor type %s", sensor)
-            continue
-
-        # Is this a metric or imperial sensor, lookup and skip
-        name, uom, kind, device_class, icon, metric = SENSOR_TYPES[sensor]
-        if "baro" in sensor:
-            if (conf[CONF_UNIT_BARO] == CONF_UNIT_SYSTEM_IMPERIAL and
-                    metric == S_METRIC):
-                continue
-            if (conf[CONF_UNIT_BARO] == CONF_UNIT_SYSTEM_METRIC and
-                    metric == S_IMPERIAL):
-                continue
-        if "rain" in sensor:
-            if (conf[CONF_UNIT_RAIN] == CONF_UNIT_SYSTEM_IMPERIAL and
-                    metric == S_METRIC):
-                continue
-            if (conf[CONF_UNIT_RAIN] == CONF_UNIT_SYSTEM_METRIC and
-                    metric == S_IMPERIAL):
-                continue
-        if "wind" in sensor:
-            if (conf[CONF_UNIT_WIND] == CONF_UNIT_SYSTEM_IMPERIAL and
-                    metric == S_METRIC):
-                continue
-            if (conf[CONF_UNIT_WIND] == CONF_UNIT_SYSTEM_METRIC and
-                    metric == S_IMPERIAL):
+        # load the sensors we have
+        for sensor in ws.last_values.keys():
+            if sensor not in SENSOR_TYPES:
+                if sensor not in IGNORED_SENSORS:
+                    _LOGGER.warning("Unhandled sensor type %s", sensor)
                 continue
 
-        all_sensors.append(sensor)
+            # Is this a metric or imperial sensor, lookup and skip
+            name, uom, kind, device_class, icon, metric = SENSOR_TYPES[sensor]
+            if "baro" in sensor:
+                if (conf[CONF_UNIT_BARO] == CONF_UNIT_SYSTEM_IMPERIAL and
+                        metric == S_METRIC):
+                    continue
+                if (conf[CONF_UNIT_BARO] == CONF_UNIT_SYSTEM_METRIC and
+                        metric == S_IMPERIAL):
+                    continue
+            if "rain" in sensor:
+                if (conf[CONF_UNIT_RAIN] == CONF_UNIT_SYSTEM_IMPERIAL and
+                        metric == S_METRIC):
+                    continue
+                if (conf[CONF_UNIT_RAIN] == CONF_UNIT_SYSTEM_METRIC and
+                        metric == S_IMPERIAL):
+                    continue
+            if "wind" in sensor:
+                if (conf[CONF_UNIT_WIND] == CONF_UNIT_SYSTEM_IMPERIAL and
+                        metric == S_METRIC):
+                    continue
+                if (conf[CONF_UNIT_WIND] == CONF_UNIT_SYSTEM_METRIC and
+                        metric == S_IMPERIAL):
+                    continue
 
-    if not all_sensors:
-        _LOGGER.error("No sensors found to monitor, check device config.")
-        return False
+            all_sensors.append(sensor)
 
-    hass.async_create_task(
-        async_load_platform(hass, "sensor", DOMAIN, all_sensors, config)
-    )
+        if not all_sensors:
+            _LOGGER.error("No sensors found to monitor, check device config.")
+            return False
+
+        hass.async_create_task(
+            async_load_platform(hass, "sensor", DOMAIN, all_sensors,
+                                config)
+        )
+        hass.data[DOMAIN][DATA_READY] = True
 
     async def _async_ecowitt_update_cb(weather_data):
         """Primary update callback called from pyecowitt."""
         _LOGGER.debug("Primary update callback triggered.")
+        if not hass.data[DOMAIN][DATA_READY]:
+            await _first_data_rec(weather_data)
+            return
         for sensor in weather_data.keys():
             if sensor not in SENSOR_TYPES:
                 if sensor not in IGNORED_SENSORS:
