@@ -134,25 +134,59 @@ views:
                 cards:
                   - type: markdown
                     content: >
-                      Wind
-                  - type: entities
-                    show_header_toggle: false
-                    entities:
-                      - entity: sensor.weather_wind_direction
-                        name: Direction
-                      - entity: sensor.wind_speed
-                        name: Speed
-                      - entity: sensor.wind_gust
-                        name: Gust
+                      Rainfall
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:water
+                      - type: markdown
+                        content: >
+                          Rate / hr
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.hourly_rain_rate') }}
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:water
+                      - type: markdown
+                        content: >
+                          Daily
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.daily_rain_rate') }}
               - type: vertical-stack
                 cards:
                   - type: markdown
                     content: >
-                      Rainfall
-                  - type: entities
-                    show_header_toggle: false
-                    entities:
-                      - entity: sensor.hourly_rain_rate
-                        name: Rate / hr
-                      - entity: sensor.daily_rain_rate
-                        name: Daily
+                      Wind
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:weather-windy
+                      - type: markdown
+                        content: >
+                          Direction
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.weather_wind_direction') }}
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:weather-windy
+                      - type: markdown
+                        content: >
+                          Speed
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.wind_speed') }}
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:weather-windy
+                      - type: markdown
+                        content: >
+                          Gust
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.wind_gust') }}
