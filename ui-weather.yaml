@@ -196,3 +196,21 @@ views:
                 name: Wind
                 compass:
                   indicator: arrow_inward
+              - break
+              - type: custom:ha-card-weather-conditions
+                name: Weather
+                language: en
+                animation: true
+                weather:
+                  icons_model: openweathermap
+                  current:
+                    sun: sun.sun
+                    moon: sensor.moon
+                    humidity: sensor.humidity
+                    pressure: sensor.absolute_pressure
+                    temperature: sensor.outdoor_temperature
+                    wind_bearing: sensor.wind_direction
+                    wind_speed: sensor.wind_speed
+                    precipitation: sensor.daily_rain_rate
+                uv:
+                  uv_index: sensor.uv_index
