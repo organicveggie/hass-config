@@ -193,5 +193,6 @@ views:
               - type: custom:compass-card
                 entity: sensor.wind_direction
                 secondary_entity: sensor.wind_speed
+                name: Wind
                 compass:
                   indicator: arrow_inward
