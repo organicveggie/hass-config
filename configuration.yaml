@@ -66,6 +66,11 @@ script: !include scripts.yaml
 tts:
   - platform: google_translate
 
+weather:
+  - platform: openweathermap
+    api_key: !secret openweathermap_api_key
+    mode: daily
+
 # Belkin Wemo
 wemo:
   discovery: true
