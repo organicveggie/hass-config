@@ -3,3 +3,11 @@
   entities:
     - light.end_table_lamp
     - light.floor_lamp
+
+- platform: group
+  name: Indoor Lights
+  entities:
+    - light.end_table_lamp
+    - light.floor_lamp
+    - light.dining_room_light
+    - light.wine_fridge
