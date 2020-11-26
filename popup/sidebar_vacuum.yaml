@@ -15,7 +15,8 @@ service_data:
             name: Bin full
           - entity: sensor.david_battery_level
             name: Battery level
-          - entity: vacuum.david
+          - type: attribute
+            entity: vacuum.david
             attribute: fan_speed
             name: Fan speed
           - type: conditional
