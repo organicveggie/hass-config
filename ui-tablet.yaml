@@ -113,7 +113,7 @@ views:
                     entities:
                       - entity: sensor.temperature_3
                         name: Temp
-                      - entity: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+                      - entity: switch.esspresso_machine
                         name: Espresso Machine                        
                       - entity: sensor.placeholder
               - type: vertical-stack

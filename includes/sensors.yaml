@@ -118,7 +118,7 @@ sensor:
           {% set lights_on = lights | selectattr('state','eq','on') | list %}
           {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
-          {% set switches = [states.switch.leviton_dzpa1_2bw_plug_in_outlet_switch] %}
+          {% set switches = [states.switch.esspresso_machine] %}
           {% set switches_on = switches | selectattr('state','eq','on') | list %} 
           {% set switches_name = switches | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 

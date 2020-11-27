@@ -73,7 +73,7 @@
   - scene: scene.lamps_off
   - type: turn_off
     device_id: c533d733108c11eb8e12bd20fc718008
-    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    entity_id: switch.esspresso_machine
     domain: switch
   - scene: scene.house_locked_up
   mode: single
@@ -92,7 +92,7 @@
   - scene: scene.lamps_off
   - type: turn_off
     device_id: c533d733108c11eb8e12bd20fc718008
-    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    entity_id: switch.esspresso_machine
     domain: switch
   - scene: scene.house_locked_up
   mode: single
@@ -144,7 +144,7 @@
   action:
   - type: turn_on
     device_id: c533d733108c11eb8e12bd20fc718008
-    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    entity_id: switch.esspresso_machine
     domain: switch
   mode: single
 - id: '1602949162441'
@@ -161,7 +161,7 @@
   action:
   - type: turn_on
     device_id: c533d733108c11eb8e12bd20fc718008
-    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+    entity_id: switch.esspresso_machine
     domain: switch
   mode: single
 

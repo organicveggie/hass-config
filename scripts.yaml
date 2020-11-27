@@ -18,4 +18,4 @@ house_bedtime:
     - service: lock.lock
       entity_id: all
     - service: switch.turn_off
-      entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+      entity_id: switch.esspresso_machine
