@@ -56,6 +56,15 @@ notify:
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 
+# Roomba vacuums
+roomba:
+  - host: !secret roomba_1_ip
+    blid: !secret roomba_1_blid
+    password: !secret roomba_1_passwd
+  - host: !secret roomba_2_ip
+    blid: !secret roomba_2_blid
+    password: !secret roomba_2_passwd
+
 # Scenes
 scene: !include scenes.yaml
 
