@@ -164,39 +164,50 @@
     entity_id: switch.esspresso_machine
     domain: switch
   mode: single
-
 - alias: homeassistant start-up
   initial_state: true
   trigger:
     platform: homeassistant
     event: start
   action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.system_ready
-    - service: input_boolean.turn_off
-      entity_id: 'input_boolean.allow_automation_execution'
-
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.system_ready
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.allow_automation_execution
+  id: def09d88895949609b7fbbc6b4364391
 - alias: open_zwave_network_down
   initial_state: true
   trigger:
-    - platform: state
-      entity_id: binary_sensor.ozw_network_status
-      to: "off"
+  - platform: state
+    entity_id: binary_sensor.ozw_network_status
+    to: 'off'
   action:
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.allow_automation_execution
-
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.allow_automation_execution
+  id: 385ba8c3002d40128e13d8cdd91db476
 - alias: open_zwave_network_up
   initial_state: true
   trigger:
-    - platform: homeassistant
-      event: start
-    - platform: state
-      entity_id: binary_sensor.ozw_network_status
-      to: "on"
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: binary_sensor.ozw_network_status
+    to: 'on'
   condition:
-    - condition: state
-      entity_id: binary_sensor.ozw_network_status
-      state: "on"
+  - condition: state
+    entity_id: binary_sensor.ozw_network_status
+    state: 'on'
   action:
-    - service: script.system_startup_cleanup
+  - service: script.system_startup_cleanup
+  id: 1c90aee2cfa44e859213900aa79a323a
+- id: '1605425910532'
+  alias: Tag Bedtime is scanned
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 0cd8f320-fdad-4bf7-a1ca-21b8fb4c6631
+  condition: []
+  action:
+  - service: script.house_bedtime
+    data: {}
+  mode: single
