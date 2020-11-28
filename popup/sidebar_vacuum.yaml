@@ -85,7 +85,7 @@ service_data:
                     service: vacuum.locate
                     service_data:
                         entity_id: vacuum.david
-    - type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: entities
             entities:
