@@ -190,6 +190,7 @@ sensor:
           {% if is_state(entity_id, 'returning') %} done
           {% elif is_state(entity_id, 'error') %} {{state_attr(entity_id, 'status')|lower}}
           {% else %} {{states(entity_id)}}
+          {% endif %}
 
       vacuum_status_dustin:
         value_template: >
@@ -197,6 +198,7 @@ sensor:
           {% if is_state(entity_id, 'returning') %} done
           {% elif is_state(entity_id, 'error') %} {{state_attr(entity_id, 'status')|lower}}
           {% else %} {{states(entity_id)}}
+          {% endif %}
 
       vacuum_cleaned_area:
         value_template: >
