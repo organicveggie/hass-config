@@ -3,6 +3,8 @@ service: browser_mod.popup
 service_data:
   title: Vacuums
   deviceID: this
+  style:
+    width: 50%
   card:
     type: horizontal-stack
     cards:
@@ -10,11 +12,12 @@ service_data:
         cards:
           - type: entities
             entities:
-              - entity: vacuum.david
+              - type: attribute
+                entity: vacuum.david
                 attribute: friendly_name
                 name: Name
-              - entity: binary_sensor.david_bin_full
-              - entity: vacuum.david
+              - type: attribute
+                entity: vacuum.david
                 attribute: status
                 name: Status
               - entity: binary_sensor.david_bin_full
@@ -89,10 +92,12 @@ service_data:
         cards:
           - type: entities
             entities:
-              - entity: vacuum.dustin
+              - type: attribute
+                entity: vacuum.dustin
                 attribute: friendly_name
                 name: Name
-              - entity: vacuum.dustin
+              - type: attribute
+                entity: vacuum.dustin
                 attribute: status
                 name: Status
               - entity: binary_sensor.dustin_bin_full
@@ -163,3 +168,4 @@ service_data:
                     service: vacuum.locate
                     service_data:
                         entity_id: vacuum.dustin
+
