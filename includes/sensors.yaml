@@ -165,20 +165,20 @@ sensor:
 
           {% if states(david_id) in ['cleaning', 'returning'] %}
             {% if states(david_id) == states(dustin_id) %}
-              David and Dustin are {{vacuum_status_david}}
+              David and Dustin are {{states('sensor.vacuum_status_david')}}
             {% elif states(dustin_id) in ['cleaning', 'error'] %}
-              David is {{vacuum_status_david}} and Dustin is {{vacuum_status_dustin}}
+              David is {{states('sensor.vacuum_status_david')}} and Dustin is {{states('sensor.vacuum_status_dustin')}}
             {% else %}
-              David is {{vacuum_status_david}}
+              David is {{states('sensor.vacuum_status_david')}}
             {% endif %}
           {% elif is_state(david_id, 'error') %}
             {% if states(dustin_id) in ['cleaning', 'returning', 'error'] %}
-              David is {{vacuum_status_david}} and Dustin is {{vacuum_status_dustin}}
+              David is {{states('sensor.vacuum_status_david')}} and Dustin is {{states('sensor.vacuum_status_dustin')}}
             {% else %}
-              David is {{vacuum_status_david}}
+              David is {{states('sensor.vacuum_status_david')}}
             {% endif %}
           {% elif states(dustin_id) in ['cleaning', 'returning', 'error'] %}
-            Dustin is {{vacuum_status_dustin}}
+            Dustin is {{states('sensor.vacuum_status_dustin')}}
           {% endif %}
 
       ##########
