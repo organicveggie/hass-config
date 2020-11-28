@@ -160,26 +160,56 @@ sensor:
 
       sidebar_vacuum:
         value_template: >
-          {% set entity_id = 'vacuum.david' %}
-          {% if is_state(entity_id, 'cleaning') %} David is cleaning
-          {% elif is_state(entity_id, 'returning') %} David is done
+          {% set david_id = 'vacuum.david' %}
+          {% set dustin_id = 'vacuum.dustin' %}
+
+          {% if states(david_id) in ['cleaning', 'returning'] %}
+            {% if states(david_id) == states(dustin_id) %}
+              David and Dustin are {{vacuum_status_david}}
+            {% elif states(dustin_id) in ['cleaning', 'error'] %}
+              David is {{vacuum_status_david}} and Dustin is {{vacuum_status_dustin}}
+            {% else %}
+              David is {{vacuum_status_david}}
+            {% endif %}
+          {% elif is_state(david_id, 'error') %}
+            {% if states(dustin_id) in ['cleaning', 'returning', 'error'] %}
+              David is {{vacuum_status_david}} and Dustin is {{vacuum_status_dustin}}
+            {% else %}
+              David is {{vacuum_status_david}}
+            {% endif %}
+          {% elif states(dustin_id) in ['cleaning', 'returning', 'error'] %}
+            Dustin is {{vacuum_status_dustin}}
           {% endif %}
 
       ##########
       # Vacuum
       ##########
+      vacuum_status_david:
+        value_template: >
+          {% set entity_id = 'vacuum.david' %}
+          {% if is_state(entity_id, 'returning') %} done
+          {% elif is_state(entity_id, 'error') %} {{state_attr(entity_id, 'status')|lower}}
+          {% else %} {{states(entity_id)}}
+
+      vacuum_status_dustin:
+        value_template: >
+          {% set entity_id = 'vacuum.dustin' %}
+          {% if is_state(entity_id, 'returning') %} done
+          {% elif is_state(entity_id, 'error') %} {{state_attr(entity_id, 'status')|lower}}
+          {% else %} {{states(entity_id)}}
+
       vacuum_cleaned_area:
         value_template: >
           {% set entity_id = 'vacuum.david' %}
-          {% if is_state(entity_id, 'cleaning') %} Cleaned: {{ state_attr('vacuum.david', 'cleaned_area') }} ft^2
-          {% elif is_state(entity_id, 'returning') %} Cleaned: {{ state_attr('vacuum.david', 'cleaned_area') }} ft^2
+          {% if is_state(entity_id, 'cleaning') %} Cleaned: {{ state_attr(entity_id, 'cleaned_area') }} ft^2
+          {% elif is_state(entity_id, 'returning') %} Cleaned: {{ state_attr(entity_id, 'cleaned_area') }} ft^2
           {% endif %}
 
       vacuum_cleaning_time:
         value_template: >
           {% set entity_id = 'vacuum.david' %}
-          {% if is_state(entity_id, 'cleaning') %} Cleaning time: {{ state_attr('vacuum.david', 'cleaning_time') }} mins
-          {% elif is_state(entity_id, 'returning') %} Cleaning time: {{ state_attr('vacuum.david', 'cleaning_time') }} mins
+          {% if is_state(entity_id, 'cleaning') %} Cleaning time: {{ state_attr(entity_id, 'cleaning_time') }} mins
+          {% elif is_state(entity_id, 'returning') %} Cleaning time: {{ state_attr(entity_id, 'cleaning_time') }} mins
           {% endif %}
 
       ##########
