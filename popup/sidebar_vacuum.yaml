@@ -1,82 +1,165 @@
 action: call-service
 service: browser_mod.popup
 service_data:
-  title: Roomba
+  title: Vacuums
   deviceID: this
   card:
-    type: vertical-stack
+    type: horizontal-stack
     cards:
-      - type: entities
-        entities:
-          - entity: vacuum.david
-            attribute: status
-            name: Status
-          - entity: binary_sensor.david_bin_full
-            name: Bin full
-          - entity: sensor.david_battery_level
-            name: Battery level
-          - type: attribute
-            entity: vacuum.david
-            attribute: fan_speed
-            name: Fan speed
-          - type: conditional
-            conditions:
-              - entity: vacuum.david
-                state: cleaning
-            row:
-              entity: sensor.vacuum_cleaning_time
-          - type: conditional
-            conditions:
-              - entity: vacuum.david
-                state: cleaning
-            row:
-              entity: sensor.vacuum_cleaned_area
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
-          - type: conditional
-            conditions:
+          - type: entities
+            entities:
               - entity: vacuum.david
-                state_not: cleaning
-            card:
-              type: button
-              icon: mdi:play-circle
-              show_state: false
-              name: Start
-              tap_action:
-                  action: call-service
-                  service: vacuum.start
-                  service_data:
-                    entity_id: vacuum.david
-          - type: conditional
-            conditions:
+                attribute: friendly_name
+                name: Name
+              - entity: binary_sensor.david_bin_full
               - entity: vacuum.david
-                state: cleaning
-            card:
-              type: button
-              icon: mdi:pause-circle
-              show_state: false
-              name: Start/Pause
-              tap_action:
-                  action: call-service
-                  service: vacuum.start_pause
-                  service_data:
-                    entity_id: vacuum.david
-          - type: button
-            icon: mdi:home-circle
-            show_state: false
-            name: Send Home
-            tap_action:
-                action: call-service
-                service: vacuum.return_to_base
-                service_data:
-                  entity_id: vacuum.david
-          - type: button
-            icon: mdi:map-marker-question
-            name: Locate
-            show_state: false
-            tap_action:
-                action: call-service
-                service: vacuum.locate
-                service_data:
-                    entity_id: vacuum.david
-  
+                attribute: status
+                name: Status
+              - entity: binary_sensor.david_bin_full
+                name: Bin full
+              - entity: sensor.david_battery_level
+                name: Battery level
+              - type: attribute
+                entity: vacuum.david
+                attribute: fan_speed
+                name: Fan speed
+              - type: conditional
+                conditions:
+                  - entity: vacuum.david
+                    state: cleaning
+                row:
+                  entity: sensor.vacuum_cleaning_time_david
+              - type: conditional
+                conditions:
+                  - entity: vacuum.david
+                    state: cleaning
+                row:
+                  entity: sensor.vacuum_cleaned_area_david
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: vacuum.david
+                    state_not: cleaning
+                card:
+                  type: button
+                  icon: mdi:play-circle
+                  show_state: false
+                  name: Start
+                  tap_action:
+                      action: call-service
+                      service: vacuum.start
+                      service_data:
+                        entity_id: vacuum.david
+              - type: conditional
+                conditions:
+                  - entity: vacuum.david
+                    state: cleaning
+                card:
+                  type: button
+                  icon: mdi:pause-circle
+                  show_state: false
+                  name: Start/Pause
+                  tap_action:
+                      action: call-service
+                      service: vacuum.start_pause
+                      service_data:
+                        entity_id: vacuum.david
+              - type: button
+                icon: mdi:home-circle
+                show_state: false
+                name: Send Home
+                tap_action:
+                    action: call-service
+                    service: vacuum.return_to_base
+                    service_data:
+                      entity_id: vacuum.david
+              - type: button
+                icon: mdi:map-marker-question
+                name: Locate
+                show_state: false
+                tap_action:
+                    action: call-service
+                    service: vacuum.locate
+                    service_data:
+                        entity_id: vacuum.david
+    - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: vacuum.dustin
+                attribute: friendly_name
+                name: Name
+              - entity: vacuum.dustin
+                attribute: status
+                name: Status
+              - entity: binary_sensor.dustin_bin_full
+                name: Bin full
+              - entity: sensor.dustin_battery_level
+                name: Battery level
+              - type: attribute
+                entity: vacuum.dustin
+                attribute: fan_speed
+                name: Fan speed
+              - type: conditional
+                conditions:
+                  - entity: vacuum.dustin
+                    state: cleaning
+                row:
+                  entity: sensor.vacuum_cleaning_time_dustin
+              - type: conditional
+                conditions:
+                  - entity: vacuum.david
+                    state: cleaning
+                row:
+                  entity: sensor.vacuum_cleaned_area_dustin
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: vacuum.dustin
+                    state_not: cleaning
+                card:
+                  type: button
+                  icon: mdi:play-circle
+                  show_state: false
+                  name: Start
+                  tap_action:
+                      action: call-service
+                      service: vacuum.start
+                      service_data:
+                        entity_id: vacuum.dustin
+              - type: conditional
+                conditions:
+                  - entity: vacuum.dustin
+                    state: cleaning
+                card:
+                  type: button
+                  icon: mdi:pause-circle
+                  show_state: false
+                  name: Start/Pause
+                  tap_action:
+                      action: call-service
+                      service: vacuum.start_pause
+                      service_data:
+                        entity_id: vacuum.dustin
+              - type: button
+                icon: mdi:home-circle
+                show_state: false
+                name: Send Home
+                tap_action:
+                    action: call-service
+                    service: vacuum.return_to_base
+                    service_data:
+                      entity_id: vacuum.dustin
+              - type: button
+                icon: mdi:map-marker-question
+                name: Locate
+                show_state: false
+                tap_action:
+                    action: call-service
+                    service: vacuum.locate
+                    service_data:
+                        entity_id: vacuum.dustin
