@@ -191,11 +191,15 @@ views:
                         content: >
                           {{ states('sensor.wind_gust') }}
               - type: custom:compass-card
-                entity: sensor.wind_direction
-                secondary_entity: sensor.wind_speed
-                name: Wind
-                compass:
-                  indicator: arrow_inward
+                header:
+                  title:
+                    value: Wind
+                indicator_sensors:
+                  - sensor: sensor.wind_direction
+                    indicator:
+                      type: arrow_inward
+                value_sensors:
+                  - sensor: sensor.wind_speed
               - break
               - type: custom:ha-card-weather-conditions
                 name: Weather
