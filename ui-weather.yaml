@@ -200,6 +200,7 @@ views:
                       type: arrow_inward
                 value_sensors:
                   - sensor: sensor.wind_speed
+                    decimals: 1
               - break
               - type: custom:ha-card-weather-conditions
                 name: Weather
