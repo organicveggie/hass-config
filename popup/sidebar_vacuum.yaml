@@ -3,8 +3,13 @@ service: browser_mod.popup
 service_data:
   title: Vacuums
   deviceID: this
-  style:
-    width: 50%
+  # Limit the width to 800px so it doesn't get too big on bigger screens,
+  # but is still large enough on an 8" tablet screen.
+  style: |
+    :host .content {
+      width: 90vw;
+      max-width: 800px;
+     }
   card:
     type: horizontal-stack
     cards:
