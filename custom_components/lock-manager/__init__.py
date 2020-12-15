@@ -16,7 +16,6 @@ from .const import (
     CONF_ENTITY_ID,
     CONF_GENERATE,
     CONF_LOCK_NAME,
-    CONF_OZW,
     CONF_PATH,
     CONF_SENSOR_NAME,
     CONF_SLOTS,
@@ -99,7 +98,9 @@ async def async_setup_entry(hass, config_entry):
                         value.command_class == CommandClass.USER_CODE
                         and value.index == 255
                     ):
-                        _LOGGER.debug("DEBUG: Index found valueIDKey: %s", int(value.value_id_key))
+                        _LOGGER.debug(
+                            "DEBUG: Index found valueIDKey: %s", int(value.value_id_key)
+                        )
                         value.send_value(True)
                         value.send_value(False)
 
@@ -111,7 +112,9 @@ async def async_setup_entry(hass, config_entry):
         entity_id = service.data[ATTR_ENTITY_ID]
         code_slot = service.data[ATTR_CODE_SLOT]
         usercode = service.data[ATTR_USER_CODE]
-        using_ozw = config_entry.options[CONF_OZW]
+        using_ozw = False  # Set false by default
+        if OZW_DOMAIN in hass.data:
+            using_ozw = True  # Set true if we find ozw
         data = None
 
         # Pull the node_id from the entity
@@ -157,7 +160,9 @@ async def async_setup_entry(hass, config_entry):
         _LOGGER.debug("Clear Code service: %s", service)
         entity_id = service.data[ATTR_ENTITY_ID]
         code_slot = service.data[ATTR_CODE_SLOT]
-        using_ozw = config_entry.options[CONF_OZW]
+        using_ozw = False  # Set false by default
+        if OZW_DOMAIN in hass.data:
+            using_ozw = True  # Set true if we find ozw
         data = None
 
         # Pull the node_id from the entity
@@ -218,7 +223,9 @@ async def async_setup_entry(hass, config_entry):
             doorsensorentityname = entry.options[CONF_SENSOR_NAME] or ""
             sensoralarmlevel = entry.options[CONF_ALARM_LEVEL]
             sensoralarmtype = entry.options[CONF_ALARM_TYPE]
-            using_ozw = f"{entry.options[CONF_OZW]}"
+            using_ozw = False  # Set false by default
+            if OZW_DOMAIN in hass.data:
+                using_ozw = True  # Set true if we find ozw
             dummy = "foobar"
 
             output_path = entry.options[CONF_PATH] + lockname + "/"
@@ -261,7 +268,7 @@ async def async_setup_entry(hass, config_entry):
                 x += 1
                 code_slots -= 1
             inputlockpinheaders = ",".join(map(str, inputlockpinheaders))
-            using_ozw = f"{entry.options[CONF_OZW]}"
+            using_ozw = f"{using_ozw}"
 
             _LOGGER.debug("Creating common YAML file...")
             replacements = {
