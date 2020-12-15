@@ -31,6 +31,47 @@
       friendly_name: Floor lamp
       supported_features: 41
       state: 'off'
+    zwave.leviton_dzpa1_2bw_plug_in_outlet_2:
+      node_id: 9
+      node_name: Leviton DZPA1-2BW Plug-In Outlet
+      manufacturer_name: Leviton
+      product_name: DZPA1-2BW Plug-In Outlet
+      query_stage: Complete
+      is_awake: true
+      is_ready: true
+      is_failed: false
+      is_info_received: true
+      max_baud_rate: 40000
+      is_zwave_plus: true
+      capabilities:
+      - zwave_plus
+      - routing
+      - beaming
+      - listening
+      neighbors:
+      - 1
+      sentCnt: 21
+      sentFailed: 0
+      retries: 0
+      receivedCnt: 21
+      receivedDups: 0
+      receivedUnsolicited: 6
+      sentTS: '2020-12-15 07:37:04:038 '
+      receivedTS: '2020-12-15 07:37:04:074 '
+      lastRequestRTT: 25
+      averageRequestRTT: 33
+      lastResponseRTT: 36
+      averageResponseRTT: 55
+      application_version: '1.20'
+      friendly_name: Xmas Lights Outlet
+      state: ready
+    switch.leviton_dzpa1_2bw_plug_in_outlet_switch:
+      node_id: 9
+      value_index: 0
+      value_instance: 1
+      value_id: '72057594193723392'
+      friendly_name: Xmas Lights Outlet Switch
+      state: 'off'
 - name: Living Room Movie
   entities:
     light.floor_lamp:
@@ -51,64 +92,3 @@
       brightness: 255
       friendly_name: End table lamp
       state: 'on'
-
-# - id: '1603688752127'
-#   name: House locked up
-#   entities:
-#     zwave.schlage_front_door:
-#       node_id: 5
-#       node_name: Schlage (Allegion) BE469ZP Connect Smart Deadbolt
-#       manufacturer_name: Schlage (Allegion)
-#       product_name: BE469ZP Connect Smart Deadbolt
-#       query_stage: Complete
-#       is_awake: true
-#       is_ready: true
-#       is_failed: false
-#       is_info_received: true
-#       max_baud_rate: 40000
-#       is_zwave_plus: true
-#       capabilities:
-#       - beaming
-#       - routing
-#       - frequent
-#       - zwave_plus
-#       neighbors:
-#       - 1
-#       - 6
-#       - 7
-#       sentCnt: 25
-#       sentFailed: 0
-#       retries: 0
-#       receivedCnt: 25
-#       receivedDups: 0
-#       receivedUnsolicited: 5
-#       sentTS: '2020-10-25 19:35:35:343 '
-#       receivedTS: '2020-10-25 19:35:16:499 '
-#       lastRequestRTT: 1445
-#       averageRequestRTT: 1863
-#       lastResponseRTT: 1162
-#       averageResponseRTT: 865
-#       battery_level: 84
-#       application_version: '3.03'
-#       friendly_name: Schlage Front Door
-#       state: ready
-#     lock.schlage_locked_front_door:
-#       node_id: 5
-#       value_index: 0
-#       value_instance: 1
-#       value_id: '72057594127613952'
-#       notification: Manual Lock
-#       lock_status: Manually Locked by Key Cylinder or Inside thumb turn
-#       friendly_name: Schlage Front Door Locked
-#       state: locked
-#     cover.atrium_sliding_door:
-#       friendly_name: Atrium sliding door
-#       supported_features: 3
-#       device_class: garage
-#       state: closed
-#     cover.garage_door:
-#       friendly_name: Garage door
-#       supported_features: 3
-#       device_class: garage
-#       state: closed
-#   icon: mdi:lock

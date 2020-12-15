@@ -1,21 +1,19 @@
-# feel free to add post startup calls here
 system_startup_cleanup:
   sequence:
-    - condition: state
-      entity_id: 'input_boolean.system_ready'
-      state: 'off' 
-    - service: homekit.start
-    - service: input_boolean.turn_on
-      entity_id: 'input_boolean.allow_automation_execution'
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.system_ready
-
-# Turn things off and lock the door(s).
+  - condition: state
+    entity_id: input_boolean.system_ready
+    state: 'off'
+  - service: homekit.start
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.allow_automation_execution
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.system_ready
 house_bedtime:
   sequence:
-    - service: light.turn_off
-      entity_id: light.indoor_lights
-    - service: lock.lock
-      entity_id: all
-    - service: switch.turn_off
-      entity_id: switch.esspresso_machine
+  - service: light.turn_off
+    entity_id: light.indoor_lights
+  - service: lock.lock
+    entity_id: all
+  - service: switch.turn_off
+    entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
+  mode: single

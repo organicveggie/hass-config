@@ -37,24 +37,6 @@
   action:
   - scene: scene.lamps_off
   mode: single
-- id: '1602451854852'
-  alias: David bin full Android notifiy
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: vacuum.david
-    attribute: bin_full
-    to: 'On'
-  condition:
-  - condition: time
-    after: 07:00
-    before: '23:00'
-  action:
-  - service: notify.mobile_app_pixel_3
-    data:
-      title: David Bin Full
-      message: Davids bin is full. Please empty it!
-  mode: single
 - id: '1602948877563'
   alias: Everything off weeknight
   description: ''
