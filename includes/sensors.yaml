@@ -102,7 +102,8 @@ sensor:
       ##########
       freenas_version:
         friendly_name: Version
-        value_template: '{{ state_attr('sensor.freenas_system_info', 'version') }}'
+        value_template: >
+          {{ state_attr('sensor.freenas_system_info', 'version') }}
 
       freenas_loadavg:
         friendly_name: Load (1m/5m/15m)
@@ -125,7 +126,8 @@ sensor:
 
       freenas_uptime:
         friendly_name: Uptime
-        value_template: '{{ state_attr('sensor.freenas_system_info', 'uptime') }}'
+        value_template: >
+          {{ state_attr('sensor.freenas_system_info', 'uptime') }}
 
       ##########
       # Sidebar
