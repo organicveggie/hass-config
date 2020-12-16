@@ -102,12 +102,12 @@ sensor:
       ##########
       freenas_version:
         friendly_name: Version
-        value_template: '{{ sensor.freenas_system_info.attributes["version"].title() }}'
+        value_template: '{{ state_attr('sensor.freenas_system_info', 'version') }}'
 
       freenas_loadavg:
         friendly_name: Load (1m/5m/15m)
         value_template: >
-          {% set loadavg = sensor.freenas_system_info.attributes["loadavg"] %}
+          {% set loadavg = state_attr('sensor.freenas_system_info', 'loadavg') %}
           {% set avg_1 = 0.0 %}
           {% set avg_5 = 0.0 %}
           {% set avg_15 = 0.0 %}
@@ -125,7 +125,7 @@ sensor:
 
       freenas_uptime:
         friendly_name: Uptime
-        value_template: '{{ sensor.freenas_system_info.attributes["uptime"].title() }}'
+        value_template: '{{ state_attr('sensor.freenas_system_info', 'uptime') }}'
 
       ##########
       # Sidebar
@@ -190,10 +190,10 @@ sensor:
           {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
           {{ lights_on | length}} lights are on
 
-          {% if (states('vacuum.david') not in ['cleaning', 'returning']) and binary_sensor.david_bin_full %}
+          {% if (states('vacuum.david') not in ['cleaning', 'returning']) and is_state('binary_sensor.david_bin_full', 'on') %}
             David bin full!
           {% endif %}
-          {% if (states('vacuum.dustin') not in ['cleaning', 'returning']) and binary_sensor.dustin_bin_full %}
+          {% if (states('vacuum.dustin') not in ['cleaning', 'returning']) and is_state('binary_sensor.dustin_bin_full', 'on') %}
             Dustin bin full!
           {% endif %}
 
