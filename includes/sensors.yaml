@@ -190,10 +190,10 @@ sensor:
           {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
           {{ lights_on | length}} lights are on
 
-          {% if !states('vacuum.david') in ['cleaning', 'returning'] and binary_sensor.david_bin_full %}
+          {% if (states('vacuum.david') not in ['cleaning', 'returning']) and binary_sensor.david_bin_full %}
             David bin full!
           {% endif %}
-          {% if !states('vacuum.dustin') in ['cleaning', 'returning'] and binary_sensor.dustin_bin_full %}
+          {% if (states('vacuum.dustin') not in ['cleaning', 'returning']) and binary_sensor.dustin_bin_full %}
             Dustin bin full!
           {% endif %}
 
@@ -320,4 +320,3 @@ sensor:
           {% elif wind_direction >= 348 %}
             N
           {% endif %}
-
