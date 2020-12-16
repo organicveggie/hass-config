@@ -21,20 +21,6 @@ sensor:
 
   - platform: moon
 
-  - platform: rest
-    name: freenas_system_info
-    json_attributes:
-      - version
-      - uptime
-      - loadavg
-    resource: https://freenas.home.bealetech.com/api/v2.0/system/info
-    value_template: '{{ value_json.version}}'
-    username: !secret freenas_username
-    password: !secret freenas_passwd
-    authentication: basic
-    headers:
-      Content-Type: application/json
-
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -124,10 +110,10 @@ sensor:
       freenas_loadavg:
         friendly_name: Load (1m/5m/15m)
         value_template: >
-          {% loadavg = sensor.freenas_system_info.attributes["loadavg"] %}
-          {% avg_1 = 0.0 }
-          {% avg_5 = 0.0 }
-          {% avg_15 = 0.0 }
+          {% set loadavg = sensor.freenas_system_info.attributes["loadavg"] %}
+          {% set avg_1 = 0.0 }
+          {% set avg_5 = 0.0 }
+          {% set avg_15 = 0.0 }
           {% if loadavg|length == 3 %}
             {% avg_1 = loadavg[0] }
             {% avg_5 = loadavg[1] }
