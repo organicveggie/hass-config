@@ -193,10 +193,10 @@ sensor:
           {{ lights_on | length}} lights are on
 
           {% if (states('vacuum.david') not in ['cleaning', 'returning']) and is_state('binary_sensor.david_bin_full', 'on') %}
-            David bin full!
+            David's bin is full!
           {% endif %}
           {% if (states('vacuum.dustin') not in ['cleaning', 'returning']) and is_state('binary_sensor.dustin_bin_full', 'on') %}
-            Dustin bin full!
+            Dustin's bin is full!
           {% endif %}
 
           {% else %} 
