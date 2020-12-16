@@ -111,18 +111,18 @@ sensor:
         friendly_name: Load (1m/5m/15m)
         value_template: >
           {% set loadavg = sensor.freenas_system_info.attributes["loadavg"] %}
-          {% set avg_1 = 0.0 }
-          {% set avg_5 = 0.0 }
-          {% set avg_15 = 0.0 }
+          {% set avg_1 = 0.0 %}
+          {% set avg_5 = 0.0 %}
+          {% set avg_15 = 0.0 %}
           {% if loadavg|length == 3 %}
-            {% avg_1 = loadavg[0] }
-            {% avg_5 = loadavg[1] }
-            {% avg_15 = loadavg[2] }
+            {% set avg_1 = loadavg[0] %}
+            {% set avg_5 = loadavg[1] %}
+            {% set avg_15 = loadavg[2] %}
           {% elif loadavg|length == 2 %}
-            {% avg_1 = loadavg[0] }
-            {% avg_5 = loadavg[1] }
+            {% set avg_1 = loadavg[0] %}
+            {% set avg_5 = loadavg[1] %}
           {% elif loadavg|length == 2 %}
-            {% avg_1 = loadavg[0] }
+            {% set avg_1 = loadavg[0] %}
           {% endif %}
           {{ loadavg[0] }} / {{ loadavg[1] }} / {{ loadavg[2] }} 
 
