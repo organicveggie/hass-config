@@ -21,6 +21,20 @@ sensor:
 
   - platform: moon
 
+  - platform: rest
+    name: freenas_system_info
+    json_attributes:
+      - version
+      - uptime
+      - loadavg
+    resource: https://freenas.home.bealetech.com/api/v2.0/system/info
+    value_template: '{{ value_json.version}}'
+    username: !secret freenas_username
+    password: !secret freenas_passwd
+    authentication: basic
+    headers:
+      Content-Type: application/json
+
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -47,23 +61,6 @@ sensor:
     name: hass_version_latest_beta
     beta: true
     source: docker
-
-  ##########
-  # FreeNAS
-  ##########
-  - platform: rest
-    name: freenas_system_info
-    json_attributes:
-      - version
-      - uptime
-      - loadavg
-    resource: https://freenas.home.bealetech.com/api/v2.0/system/info
-    value_template: '{{ value_json.version}}'
-    username: !secret freenas_username
-    password: !secret freenas_passwd
-    authentication: basic
-    headers:
-      Content-Type: application/json
 
   ##########
   # TEMPLATES
@@ -124,7 +121,7 @@ sensor:
           {% elif loadavg|length == 2 %}
             {% set avg_1 = loadavg[0] %}
           {% endif %}
-          {{ loadavg[0] }} / {{ loadavg[1] }} / {{ loadavg[2] }} 
+          {{ avg_1 }} / {{ avg_5 }} / {{ avg_15 }} 
 
       freenas_uptime:
         friendly_name: Uptime
