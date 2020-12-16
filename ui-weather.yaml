@@ -43,6 +43,7 @@ views:
               - type: button
                 icon: mdi:nas
                 show_state: false
+                tap_action: !include popup/sidebar_freenas.yaml
                 icon_height: 64
           - break
           - type: custom:layout-card

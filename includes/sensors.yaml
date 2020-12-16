@@ -21,6 +21,20 @@ sensor:
 
   - platform: moon
 
+  - platform: rest
+    name: freenas_system_info
+    json_attributes:
+      - version
+      - uptime
+      - loadavg
+    resource: https://freenas.home.bealetech.com/api/v2.0/system/info
+    value_template: '{{ value_json.version}}'
+    username: !secret freenas_username
+    password: !secret freenas_passwd
+    authentication: basic
+    headers:
+      Content-Type: application/json
+
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -47,6 +61,23 @@ sensor:
     name: hass_version_latest_beta
     beta: true
     source: docker
+
+  ##########
+  # FreeNAS
+  ##########
+  - platform: rest
+    name: freenas_system_info
+    json_attributes:
+      - version
+      - uptime
+      - loadavg
+    resource: https://freenas.home.bealetech.com/api/v2.0/system/info
+    value_template: '{{ value_json.version}}'
+    username: !secret freenas_username
+    password: !secret freenas_passwd
+    authentication: basic
+    headers:
+      Content-Type: application/json
 
   ##########
   # TEMPLATES
@@ -82,6 +113,36 @@ sensor:
 
       placeholder:
         value_template: ' '
+
+      ##########
+      # FreeNAS
+      ##########
+      freenas_version:
+        friendly_name: Version
+        value_template: '{{ sensor.freenas_system_info.attributes["version"].title() }}'
+
+      freenas_loadavg:
+        friendly_name: Load (1m/5m/15m)
+        value_template: >
+          {% loadavg = sensor.freenas_system_info.attributes["loadavg"] %}
+          {% avg_1 = 0.0 }
+          {% avg_5 = 0.0 }
+          {% avg_15 = 0.0 }
+          {% if loadavg|length == 3 %}
+            {% avg_1 = loadavg[0] }
+            {% avg_5 = loadavg[1] }
+            {% avg_15 = loadavg[2] }
+          {% elif loadavg|length == 2 %}
+            {% avg_1 = loadavg[0] }
+            {% avg_5 = loadavg[1] }
+          {% elif loadavg|length == 2 %}
+            {% avg_1 = loadavg[0] }
+          {% endif %}
+          {{ loadavg[0] }} / {{ loadavg[1] }} / {{ loadavg[2] }} 
+
+      freenas_uptime:
+        friendly_name: Uptime
+        value_template: '{{ sensor.freenas_system_info.attributes["uptime"].title() }}'
 
       ##########
       # Sidebar
@@ -145,6 +206,13 @@ sensor:
 
           {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
           {{ lights_on | length}} lights are on
+
+          {% if !states('vacuum.david') in ['cleaning', 'returning'] and binary_sensor.david_bin_full %}
+            David bin full!
+          {% endif %}
+          {% if !states('vacuum.dustin') in ['cleaning', 'returning'] and binary_sensor.dustin_bin_full %}
+            Dustin bin full!
+          {% endif %}
 
           {% else %} 
           <font color='#6a7377'>Everything is off</font> 
@@ -269,3 +337,4 @@ sensor:
           {% elif wind_direction >= 348 %}
             N
           {% endif %}
+
