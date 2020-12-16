@@ -122,7 +122,7 @@ sensor:
           {% elif loadavg|length == 2 %}
             {% set avg_1 = loadavg[0] %}
           {% endif %}
-          {{ avg_1 }} / {{ avg_5 }} / {{ avg_15 }} 
+          {{ "%2.2f" % avg_1 }} / {{ "%2.2f" % avg_5 }} / {{ "%2.2f" % avg_15 }} 
 
       freenas_uptime:
         friendly_name: Uptime
