@@ -192,13 +192,6 @@ sensor:
           {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
           {{ lights_on | length}} lights are on
 
-          {% if (states('vacuum.david') not in ['cleaning', 'returning']) and is_state('binary_sensor.david_bin_full', 'on') %}
-            David's bin is full!
-          {% endif %}
-          {% if (states('vacuum.dustin') not in ['cleaning', 'returning']) and is_state('binary_sensor.dustin_bin_full', 'on') %}
-            Dustin's bin is full!
-          {% endif %}
-
           {% else %} 
           <font color='#6a7377'>Everything is off</font> 
           {% endif %}
@@ -232,6 +225,13 @@ sensor:
             {% endif %}
           {% elif states(dustin_id) in ['cleaning', 'returning', 'error'] %}
             Dustin is {{states('sensor.vacuum_status_dustin')}}
+          {% endif %}
+
+          {% if (states(david_id) not in ['cleaning', 'returning']) and is_state('binary_sensor.david_bin_full', 'on') %}
+            David's bin is full!
+          {% endif %}
+          {% if (states(dustin_id) not in ['cleaning', 'returning']) and is_state('binary_sensor.dustin_bin_full', 'on') %}
+            Dustin's bin is full!
           {% endif %}
 
       ##########
