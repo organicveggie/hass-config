@@ -69,10 +69,10 @@ service_data:
                   type: button
                   icon: mdi:pause-circle
                   show_state: false
-                  name: Start/Pause
+                  name: Pause
                   tap_action:
                       action: call-service
-                      service: vacuum.start_pause
+                      service: vacuum.pause
                       service_data:
                         entity_id: vacuum.david
               - type: button
@@ -149,10 +149,10 @@ service_data:
                   type: button
                   icon: mdi:pause-circle
                   show_state: false
-                  name: Start/Pause
+                  name: Pause
                   tap_action:
                       action: call-service
-                      service: vacuum.start_pause
+                      service: vacuum.pause
                       service_data:
                         entity_id: vacuum.dustin
               - type: button
