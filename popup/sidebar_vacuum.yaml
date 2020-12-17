@@ -40,12 +40,14 @@ service_data:
                     state: cleaning
                 row:
                   entity: sensor.vacuum_cleaning_time_david
+                  icon: mdi:timer-outline
               - type: conditional
                 conditions:
                   - entity: vacuum.david
                     state: cleaning
                 row:
                   entity: sensor.vacuum_cleaned_area_david
+                  icon: mdi:image-area
           - type: horizontal-stack
             cards:
               - type: conditional
@@ -121,12 +123,14 @@ service_data:
                     state: cleaning
                 row:
                   entity: sensor.vacuum_cleaning_time_dustin
+                  icon: mdi:timer-outline
               - type: conditional
                 conditions:
-                  - entity: vacuum.david
+                  - entity: vacuum.dustin
                     state: cleaning
                 row:
                   entity: sensor.vacuum_cleaned_area_dustin
+                  icon: mdi:image-area
           - type: horizontal-stack
             cards:
               - type: conditional

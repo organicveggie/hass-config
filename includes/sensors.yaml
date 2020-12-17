@@ -254,7 +254,6 @@ sensor:
           {% endif %}
 
       vacuum_cleaned_area_david:
-        icon: mdi:image-area
         friendly_name: "Cleaned"
         value_template: >
           {% set entity_id = 'vacuum.david' %}
@@ -262,7 +261,6 @@ sensor:
           {% endif %}
 
       vacuum_cleaned_area_dustin:
-        icon: mdi:image-area
         friendly_name: "Cleaned"
         value_template: >
           {% set entity_id = 'vacuum.dustin' %}
@@ -270,7 +268,6 @@ sensor:
           {% endif %}
 
       vacuum_cleaning_time_david:
-        icon: mdi:timer-outline
         friendly_name: "Cleaning time"
         value_template: >
           {% set entity_id = 'vacuum.david' %}
@@ -278,7 +275,6 @@ sensor:
           {% endif %}
 
       vacuum_cleaning_time_dustin:
-        icon: mdi:timer-outline
         friendly_name: "Cleaning time"
         value_template: >
           {% set entity_id = 'vacuum.dustin' %}
