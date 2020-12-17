@@ -33,6 +33,7 @@ service_data:
                 entity: vacuum.david
                 attribute: fan_speed
                 name: Fan speed
+                icon: mdi:fan
               - type: conditional
                 conditions:
                   - entity: vacuum.david
@@ -113,6 +114,7 @@ service_data:
                 entity: vacuum.dustin
                 attribute: fan_speed
                 name: Fan speed
+                icon: mdi:fan
               - type: conditional
                 conditions:
                   - entity: vacuum.dustin
