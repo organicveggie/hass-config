@@ -254,31 +254,35 @@ sensor:
           {% endif %}
 
       vacuum_cleaned_area_david:
+        icon: mdi:image-area
+        friendly_name: "Cleaned"
         value_template: >
           {% set entity_id = 'vacuum.david' %}
-          {% if is_state(entity_id, 'cleaning') %} Cleaned: {{ state_attr(entity_id, 'cleaned_area') }} ft^2
-          {% elif is_state(entity_id, 'returning') %} Cleaned: {{ state_attr(entity_id, 'cleaned_area') }} ft^2
+          {% if states(entity_id) in ['cleaning', 'returning'] %} {{ state_attr(entity_id, 'cleaned_area') }} ft^2
           {% endif %}
 
       vacuum_cleaned_area_dustin:
+        icon: mdi:image-area
+        friendly_name: "Cleaned"
         value_template: >
           {% set entity_id = 'vacuum.dustin' %}
-          {% if is_state(entity_id, 'cleaning') %} Cleaned: {{ state_attr(entity_id, 'cleaned_area') }} ft^2
-          {% elif is_state(entity_id, 'returning') %} Cleaned: {{ state_attr(entity_id, 'cleaned_area') }} ft^2
+          {% if states(entity_id) in ['cleaning', 'returning'] %} {{ state_attr(entity_id, 'cleaned_area') }} ft^2
           {% endif %}
 
       vacuum_cleaning_time_david:
+        icon: mdi:timer-outline
+        friendly_name: "Cleaning time"
         value_template: >
           {% set entity_id = 'vacuum.david' %}
-          {% if is_state(entity_id, 'cleaning') %} Cleaning time: {{ state_attr(entity_id, 'cleaning_time') }} mins
-          {% elif is_state(entity_id, 'returning') %} Cleaning time: {{ state_attr(entity_id, 'cleaning_time') }} mins
+          {% if states(entity_id) in ['cleaning', 'returning']} {{ state_attr(entity_id, 'cleaning_time') }} mins
           {% endif %}
 
       vacuum_cleaning_time_dustin:
+        icon: mdi:timer-outline
+        friendly_name: "Cleaning time"
         value_template: >
           {% set entity_id = 'vacuum.dustin' %}
-          {% if is_state(entity_id, 'cleaning') %} Cleaning time: {{ state_attr(entity_id, 'cleaning_time') }} mins
-          {% elif is_state(entity_id, 'returning') %} Cleaning time: {{ state_attr(entity_id, 'cleaning_time') }} mins
+          {% if states(entity_id) in ['cleaning', 'returning']} {{ state_attr(entity_id, 'cleaning_time') }} mins
           {% endif %}
 
       ##########
