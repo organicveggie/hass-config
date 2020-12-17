@@ -271,14 +271,14 @@ sensor:
         friendly_name: "Cleaning time"
         value_template: >
           {% set entity_id = 'vacuum.david' %}
-          {% if states(entity_id) in ['cleaning', 'returning']} {{ state_attr(entity_id, 'cleaning_time') }} mins
+          {% if states(entity_id) in ['cleaning', 'returning'] %} {{ state_attr(entity_id, 'cleaning_time') }} mins
           {% endif %}
 
       vacuum_cleaning_time_dustin:
         friendly_name: "Cleaning time"
         value_template: >
           {% set entity_id = 'vacuum.dustin' %}
-          {% if states(entity_id) in ['cleaning', 'returning']} {{ state_attr(entity_id, 'cleaning_time') }} mins
+          {% if states(entity_id) in ['cleaning', 'returning'] %} {{ state_attr(entity_id, 'cleaning_time') }} mins
           {% endif %}
 
       ##########
