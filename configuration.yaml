@@ -118,7 +118,7 @@ lovelace:
       type: module
   # Add yaml dashboards
   dashboards:
-    locks-yaml:
+    lights-yaml:
       mode: yaml
       title: Lights
       icon: mdi:home-lightbulb
