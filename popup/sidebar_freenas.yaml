@@ -13,6 +13,9 @@ service_data:
   card:
     type: entities
     entities:
-      - sensor.freenas_version
+      - entity: sensor.freenas_version
+        icon: mdi:anvil
       - sensor.freenas_loadavg
+        icon: mdi:weight
       - sensor.freenas_uptime
+        icon: mdi:timer
