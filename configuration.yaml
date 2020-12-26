@@ -120,6 +120,13 @@ lovelace:
   dashboards:
     locks-yaml:
       mode: yaml
+      title: Lights
+      icon: mdi:home-lightbulb
+      filename: ui-lights.yaml
+      show_in_sidebar: true
+      require_admin: true
+    locks-yaml:
+      mode: yaml
       title: Locks
       icon: mdi:door-closed-lock
       filename: ui-lock-manager.yaml
