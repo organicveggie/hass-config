@@ -48,14 +48,20 @@ views:
           - break
           - type: custom:layout-card
             layout: horizontal
-            column_width: [33%, 34%, 33%]
-            column_num: 3
             cards:
               - type: vertical-stack
                 cards:
-                  - type: custom:button-card
-                    entity: light.indoor_lights
-                    name: All Lights
+                  - type: markdown
+                    content: >
+                      All Lights
+                  - type: custom:layout-card
+                    column_num: 2
+                    column_width: 66%
+                    cards:
+                      - type: custom:button-card
+                        entity: light.indoor_lights
+                        name: All Lights
+                        icon: mdi:home-lightbulb-outline
                   - type: custom:fold-entity-row
                     head:
                       label: Light Settings
@@ -64,6 +70,7 @@ views:
                       - type: custom:slider-entity-row
                         entity: light.indoor_lights
                         name: All
+                        icon: mdi:home-lightbulb-outline
                       - type: custom:slider-entity-row
                         entity: light.dining_room_light
                         name: Buffet
@@ -78,72 +85,54 @@ views:
                         name: Wine Fridge
               - type: vertical-stack
                 cards:
+                  - type: markdown
+                    content: >
+                      Living Room
                   - type: horizontal-stack
                     cards:
                       - type: custom:button-card
                         entity: light.living_room_lights
                         name: All Lights
+                        icon: mdi:lightbulb-group
                       - type: custom:button-card
                         entity: light.end_table_lamp
                         name: End Table
+                        icon: mdi:lamp
                       - type: custom:button-card
                         entity: light.floor_lamp
                         name: Floor Lamp
+                        icon: mdi:floor-lamp
                   - type: custom:fold-entity-row
                     head:
                       label: Light Settings
                       type: section
                     items:
                       - type: custom:slider-entity-row
+                        entity: light.living_room_lights
+                        name: All
+                        icon: mdi:lightbulb-group
+                      - type: custom:slider-entity-row
                         entity: light.end_table_lamp
                         name: End Table
+                        icon: mdi:lamp
                       - type: custom:slider-entity-row
                         entity: light.floor_lamp
                         name: Floor
-                  - type: vertical-stack
+                        icon: mdi:floor-lamp
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      Garage
+                  - type: horizontal-stack
                     cards:
-                      - type: markdown
-                        content: >
-                          Living Room
-                      - type: horizontal-stack
-                        cards:
-                          - type: custom:button-card
-                            entity: light.living_room_lights
-                            name: All Lights
-                          - type: custom:button-card
-                            entity: light.end_table_lamp
-                            name: End Table
-                          - type: custom:button-card
-                            entity: light.floor_lamp
-                            name: Floor Lamp
-                      - type: custom:fold-entity-row
-                        head:
-                          label: Light Settings
-                          type: section
-                        items:
-                          - type: custom:slider-entity-row
-                            entity: light.living_room_lights
-                            name: All
-                          - type: custom:slider-entity-row
-                            entity: light.end_table_lamp
-                            name: End Table
-                          - type: custom:slider-entity-row
-                            entity: light.floor_lamp
-                            name: Floor
-                  - type: vertical-stack
-                    cards:
-                      - type: markdown
-                        content: >
-                          Garage
-                      - type: horizontal-stack
-                        cards:
-                          - type: custom:button-card
-                            entity: light.wine_fridge
-                            name: Wine Fridge
-                      - type: custom:fold-entity-row
-                        head:
-                          label: Light Settings
-                          type: section
-                        items:
-                          - type: custom:slider-entity-row
-                            entity: light.wine_fridge
+                      - type: custom:button-card
+                        entity: light.wine_fridge
+                        name: Wine Fridge
+                  - type: custom:fold-entity-row
+                    head:
+                      label: Light Settings
+                      type: section
+                    items:
+                      - type: custom:slider-entity-row
+                        entity: light.wine_fridge
