@@ -1,0 +1,7 @@
+living_room_scene:
+  name: Living Room Scenes
+  options:
+    - Full
+    - Casual
+    - Movie
+  icon: mdi:brightness-7

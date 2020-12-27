@@ -75,14 +75,24 @@
 - name: Living Room Movie
   entities:
     light.floor_lamp:
-      brightness: 128
+      brightness: 96
       friendly_name: Floor lamp
       state: 'on'
     light.end_table_lamp:
-      brightness: 128
+      brightness: 96
       friendly_name: End table lamp
       state: 'on'
-- name: Living Room Normal
+- name: Living Room Casual
+  entities:
+    light.floor_lamp:
+      brightness: 192
+      friendly_name: Floor lamp
+      state: 'on'
+    light.end_table_lamp:
+      brightness: 192
+      friendly_name: End table lamp
+      state: 'on'
+- name: Living Room Full
   entities:
     light.floor_lamp:
       brightness: 255

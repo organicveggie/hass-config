@@ -193,3 +193,11 @@
   - service: script.house_bedtime
     data: {}
   mode: single
+- alias: Living Room Scene
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_scene
+  action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: scene.living_room_{{ states.input_select.living_room_scene.state | replace(' ', '_') | lower | string }}
