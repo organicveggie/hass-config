@@ -44,6 +44,9 @@ google:
 # Groups
 group: !include groups.yaml
 
+# Input Select
+input_select: !include input_select.yaml
+
 # Light Groups
 light: !include light-groups.yaml
 
