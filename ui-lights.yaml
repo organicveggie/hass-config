@@ -135,6 +135,25 @@ views:
                 cards:
                   - type: markdown
                     content: >
+                      Dining Room
+                  - type: custom:layout-card
+                    column_width: 33%
+                    justify_content: left
+                    cards:
+                      - type: custom:button-card
+                        entity: light.dining_room_light
+                        name: Buffet
+                  - type: custom:fold-entity-row
+                    head:
+                      label: Light Settings
+                      type: section
+                    items:
+                      - type: custom:slider-entity-row
+                        entity: light.dining_room_light
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
                       Garage
                   - type: custom:layout-card
                     column_width: 33%
