@@ -65,6 +65,13 @@ views:
                         styles:
                           card:
                             - border-radius: 10%
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: >-
+                                    0px 0px 20px 3px
+                                    var(--paper-item-icon-active-color)
                   - type: custom:fold-entity-row
                     head:
                       label: Light Settings
@@ -106,6 +113,13 @@ views:
                         styles:
                           card:
                             - border-radius: 10%
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: >-
+                                    0px 0px 20px 3px
+                                    var(--paper-item-icon-active-color)
                       - type: custom:button-card
                         entity: light.end_table_lamp
                         name: End Table
@@ -113,6 +127,13 @@ views:
                         styles:
                           card:
                             - border-radius: 10%
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: >-
+                                    0px 0px 20px 3px
+                                    var(--paper-item-icon-active-color)
                       - type: custom:button-card
                         entity: light.floor_lamp
                         name: Floor Lamp
@@ -120,6 +141,13 @@ views:
                         styles:
                           card:
                             - border-radius: 10%
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: >-
+                                    0px 0px 20px 3px
+                                    var(--paper-item-icon-active-color)
                   - type: custom:fold-entity-row
                     head:
                       label: Light Settings
@@ -158,6 +186,13 @@ views:
                         styles:
                           card:
                             - border-radius: 10%
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: >-
+                                    0px 0px 20px 3px
+                                    var(--paper-item-icon-active-color)
                   - type: custom:fold-entity-row
                     head:
                       label: Light Settings
@@ -180,6 +215,13 @@ views:
                         styles:
                           card:
                             - border-radius: 10%
+                        state:
+                          - value: 'on'
+                            styles:
+                              card:
+                                - box-shadow: >-
+                                    0px 0px 20px 3px
+                                    var(--paper-item-icon-active-color)
                   - type: custom:fold-entity-row
                     head:
                       label: Light Settings
