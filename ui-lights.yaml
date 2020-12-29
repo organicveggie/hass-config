@@ -49,183 +49,231 @@ views:
           - type: custom:layout-card
             layout: horizontal
             cards:
-              - type: vertical-stack
-                cards:
-                  - type: markdown
-                    content: >
-                      All Lights
-                  - type: custom:layout-card
-                    column_width: 33%
-                    justify_content: left
-                    cards:
-                      - type: custom:button-card
-                        entity: light.indoor_lights
-                        name: All Lights
-                        icon: mdi:home-lightbulb-outline
-                        styles:
-                          card:
-                            - border-radius: 10%
-                        state:
-                          - value: 'on'
-                            styles:
-                              card:
-                                - box-shadow: >-
-                                    0px 0px 20px 3px
-                                    var(--paper-item-icon-active-color)
-                  - type: custom:fold-entity-row
-                    head:
-                      label: Light Settings
-                      type: section
-                    items:
-                      - type: custom:slider-entity-row
-                        entity: light.indoor_lights
-                        name: All
-                        icon: mdi:home-lightbulb-outline
-                      - type: custom:slider-entity-row
-                        entity: light.dining_room_light
-                        name: Buffet
-                      - type: custom:slider-entity-row
-                        entity: light.end_table_lamp
-                        name: End Table
-                      - type: custom:slider-entity-row
-                        entity: light.floor_lamp
-                        name: Floor
-                      - type: custom:slider-entity-row
-                        entity: light.wine_fridge
-                        name: Wine Fridge
-                  - type: custom:fold-entity-row
-                    head:
-                      label: Scenes
-                      type: section
-                    items:
-                      - entity: input_select.living_room_scene
-              - type: vertical-stack
-                cards:
-                  - type: markdown
-                    content: >
-                      Living Room
-                  - type: horizontal-stack
-                    cards:
-                      - type: custom:button-card
-                        entity: light.living_room_lights
-                        name: All Lights
-                        icon: mdi:lightbulb-group
-                        styles:
-                          card:
-                            - border-radius: 10%
-                        state:
-                          - value: 'on'
-                            styles:
-                              card:
-                                - box-shadow: >-
-                                    0px 0px 20px 3px
-                                    var(--paper-item-icon-active-color)
-                      - type: custom:button-card
-                        entity: light.end_table_lamp
-                        name: End Table
-                        icon: mdi:lamp
-                        styles:
-                          card:
-                            - border-radius: 10%
-                        state:
-                          - value: 'on'
-                            styles:
-                              card:
-                                - box-shadow: >-
-                                    0px 0px 20px 3px
-                                    var(--paper-item-icon-active-color)
-                      - type: custom:button-card
-                        entity: light.floor_lamp
-                        name: Floor Lamp
-                        icon: mdi:floor-lamp
-                        styles:
-                          card:
-                            - border-radius: 10%
-                        state:
-                          - value: 'on'
-                            styles:
-                              card:
-                                - box-shadow: >-
-                                    0px 0px 20px 3px
-                                    var(--paper-item-icon-active-color)
-                  - type: custom:fold-entity-row
-                    head:
-                      label: Light Settings
-                      type: section
-                    items:
-                      - type: custom:slider-entity-row
-                        entity: light.living_room_lights
-                        name: All
-                        icon: mdi:lightbulb-group
-                      - type: custom:slider-entity-row
-                        entity: light.end_table_lamp
-                        name: End Table
-                        icon: mdi:lamp
-                      - type: custom:slider-entity-row
-                        entity: light.floor_lamp
-                        name: Floor
-                        icon: mdi:floor-lamp
-                  - type: custom:fold-entity-row
-                    head:
-                      label: Scenes
-                      type: section
-                    items:
-                      - entity: input_select.living_room_scene
-              - type: vertical-stack
-                cards:
-                  - type: markdown
-                    content: >
-                      Dining Room
-                  - type: custom:layout-card
-                    column_width: 33%
-                    justify_content: left
-                    cards:
-                      - type: custom:button-card
-                        entity: light.dining_room_light
-                        name: Buffet
-                        styles:
-                          card:
-                            - border-radius: 10%
-                        state:
-                          - value: 'on'
-                            styles:
-                              card:
-                                - box-shadow: >-
-                                    0px 0px 20px 3px
-                                    var(--paper-item-icon-active-color)
-                  - type: custom:fold-entity-row
-                    head:
-                      label: Light Settings
-                      type: section
-                    items:
-                      - type: custom:slider-entity-row
-                        entity: light.dining_room_light
-              - type: vertical-stack
-                cards:
-                  - type: markdown
-                    content: >
-                      Garage
-                  - type: custom:layout-card
-                    column_width: 33%
-                    justify_content: left
-                    cards:
-                      - type: custom:button-card
-                        entity: light.wine_fridge
-                        name: Wine Fridge
-                        styles:
-                          card:
-                            - border-radius: 10%
-                        state:
-                          - value: 'on'
-                            styles:
-                              card:
-                                - box-shadow: >-
-                                    0px 0px 20px 3px
-                                    var(--paper-item-icon-active-color)
-                  - type: custom:fold-entity-row
-                    head:
-                      label: Light Settings
-                      type: section
-                    items:
-                      - type: custom:slider-entity-row
-                        entity: light.wine_fridge
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        All Lights
+                    - type: custom:layout-card
+                      column_width: 33%
+                      justify_content: left
+                      cards:
+                        - type: custom:button-card
+                          entity: light.indoor_lights
+                          name: All Lights
+                          icon: mdi:home-lightbulb-outline
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.indoor_lights
+                          name: All
+                          icon: mdi:home-lightbulb-outline
+                        - type: custom:slider-entity-row
+                          entity: light.dining_room_light
+                          name: Buffet
+                        - type: custom:slider-entity-row
+                          entity: light.end_table_lamp
+                          name: End Table
+                        - type: custom:slider-entity-row
+                          entity: light.floor_lamp
+                          name: Floor
+                        - type: custom:slider-entity-row
+                          entity: light.wine_fridge
+                          name: Wine Fridge
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Scenes
+                        type: section
+                      items:
+                        - entity: input_select.living_room_scene
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        Living Room
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          entity: light.living_room_lights
+                          name: All Lights
+                          icon: mdi:lightbulb-group
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.end_table_lamp
+                          name: End Table
+                          icon: mdi:lamp
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.floor_lamp
+                          name: Floor Lamp
+                          icon: mdi:floor-lamp
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.living_room_lights
+                          name: All
+                          icon: mdi:lightbulb-group
+                        - type: custom:slider-entity-row
+                          entity: light.end_table_lamp
+                          name: End Table
+                          icon: mdi:lamp
+                        - type: custom:slider-entity-row
+                          entity: light.floor_lamp
+                          name: Floor
+                          icon: mdi:floor-lamp
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Scenes
+                        type: section
+                      items:
+                        - entity: input_select.living_room_scene
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        Dining Room
+                    - type: custom:layout-card
+                      column_width: 33%
+                      justify_content: left
+                      cards:
+                        - type: custom:button-card
+                          entity: light.dining_room_light
+                          name: Buffet
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.dining_room_light
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        Garage
+                    - type: custom:layout-card
+                      column_width: 33%
+                      justify_content: left
+                      cards:
+                        - type: custom:button-card
+                          entity: light.wine_fridge
+                          name: Wine Fridge
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.wine_fridge
