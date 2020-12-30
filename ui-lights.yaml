@@ -103,6 +103,12 @@ views:
                           entity: light.floor_lamp
                           name: Floor
                         - type: custom:slider-entity-row
+                          entity: light.kitchen_lights_level
+                          name: Kitchen
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_cabinet_lights_level
+                          name: Cabinets
+                        - type: custom:slider-entity-row
                           entity: light.wine_fridge
                           name: Wine Fridge
                     - type: custom:fold-entity-row
@@ -211,7 +217,7 @@ views:
                           background-color: var(--primary-background-color);
                         }
                       content: >
-                        Dining Room
+                        Kitchen/Dining Room
                     - type: custom:layout-card
                       column_width: 33%
                       justify_content: left
@@ -229,13 +235,49 @@ views:
                                   - box-shadow: >-
                                       0px 0px 20px 3px
                                       var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.kitchen_lights_level
+                          name: Kitchen
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.kitchen_cabinet_lights_level
+                          name: Cabinets
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
                     - type: custom:fold-entity-row
                       head:
                         label: Light Settings
                         type: section
                       items:
                         - type: custom:slider-entity-row
+                          entity: light.kitchen_and_dining_lights
+                          name: All
+                        - type: custom:slider-entity-row
                           entity: light.dining_room_light
+                          name: Buffet
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_lights_level
+                          name: Kitchen
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_cabinet_lights_level
+                          name: Cabinets
               - type: custom:mod-card
                 style: |
                   ha-card {
@@ -259,7 +301,7 @@ views:
                       cards:
                         - type: custom:button-card
                           entity: light.wine_fridge
-                          name: Wine Fridge
+                          name: Wine
                           styles:
                             card:
                               - border-radius: 10%
@@ -277,3 +319,4 @@ views:
                       items:
                         - type: custom:slider-entity-row
                           entity: light.wine_fridge
+                          name: Wine

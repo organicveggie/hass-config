@@ -1,4 +1,17 @@
 - platform: group
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_lights_level
+    - light.kitchen_cabinet_lights_level
+
+- platform: group
+  name: Kitchen and Dining Lights
+  entities:
+    - light.dining_room_light
+    - light.kitchen_lights_level
+    - light.kitchen_cabinet_lights_level
+
+- platform: group
   name: Living Room Lights
   entities:
     - light.end_table_lamp
@@ -10,4 +23,6 @@
     - light.end_table_lamp
     - light.floor_lamp
     - light.dining_room_light
+    - light.kitchen_lights_level
+    - light.kitchen_cabinet_lights_level
     - light.wine_fridge
