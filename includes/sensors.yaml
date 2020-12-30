@@ -160,7 +160,7 @@ sensor:
 
       sidebar_active:
         value_template: >
-          {% set lights = [states.light.dining_room_light, states.light.end_table_lamp, states.light.floor_lamp, states.light.kitchen_lights_level, staes.light.kitchen_cabinet_lights_level, states.light.wine_fridge] %}
+          {% set lights = [states.light.dining_room_light, states.light.end_table_lamp, states.light.floor_lamp, states.light.kitchen_lights_level, states.light.kitchen_cabinet_lights_level, states.light.wine_fridge] %}
           {% set lights_on = lights | selectattr('state','eq','on') | list %}
           {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
