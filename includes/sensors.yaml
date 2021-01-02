@@ -170,7 +170,7 @@ sensor:
           {{ lights_on | length }} lights are on
           {% endif %}
 
-          {% set switches = [states.switch.esspresso_machine, states.switch.leviton_dzpa1_2bw_plug_in_outlet_switch, states.switch.garage_heater_outlet_switch, states.switch.washer_outlet_switch] %}
+          {% set switches = [states.switch.esspresso_machine, states.switch.leviton_dzpa1_2bw_plug_in_outlet_switch, states.switch.garage_heater_outlet_switch] %}
           {% set switches_on = switches | selectattr('state','eq','on') | list %} 
           {% set switches_name = switches | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
