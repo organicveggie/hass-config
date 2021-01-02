@@ -1,8 +1,556 @@
 views:
-  - panel: true
+  - title: Lights
+    icon: 'mdi:home-lightbulb'
+    panel: true
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        column_width: [21%, 79%]
+        column_num: 2
+        cards:
+          - type: markdown
+            class: sidebar
+            style: |
+              .sidebar {
+                font-size: 1.5vw;
+                font-weight: 300;
+                opacity: 0.75;
+              }
+            content: >
+              <span>{{ states('sensor.time') }}</span>
+
+              <font color='#6a7377'><b>{{ states('sensor.sidebar_day') }}</b><br>
+              <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
+
+              <b>{{ states('sensor.sidebar_greeting') }}</b>
+
+              <b>{{ states('sensor.sidebar_active') }}</b>
+
+              <font color='#6a7377'>
+              <b>{{ states('sensor.sidebar_vacuum') }}</b>
+              </font>
+          - type: horizontal-stack
+            cards:
+              - type: button
+                icon: mdi:robot-vacuum
+                show_state: false
+                tap_action: !include popup/sidebar_vacuum.yaml
+                icon_height: 64
+              - type: button
+                icon: mdi:information-outline
+                show_state: false
+                tap_action: !include popup/sidebar_homeassistant.yaml
+                icon_height: 64
+              - type: button
+                icon: mdi:nas
+                show_state: false
+                tap_action: !include popup/sidebar_freenas.yaml
+                icon_height: 64
+          - break
+          - type: custom:layout-card
+            layout: horizontal
+            cards:
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--dark-primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        All Lights
+                    - type: custom:layout-card
+                      column_width: 33%
+                      justify_content: left
+                      cards:
+                        - type: custom:button-card
+                          entity: light.indoor_lights
+                          name: All Lights
+                          icon: mdi:home-lightbulb-outline
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.indoor_lights
+                          name: All
+                          icon: mdi:home-lightbulb-outline
+                        - type: custom:slider-entity-row
+                          entity: light.dining_room_light
+                          name: Buffet
+                        - type: custom:slider-entity-row
+                          entity: light.end_table_lamp
+                          name: End Table
+                        - type: custom:slider-entity-row
+                          entity: light.floor_lamp
+                          name: Floor
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_lights_level
+                          name: Kitchen
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_cabinet_lights_level
+                          name: Cabinets
+                        - type: custom:slider-entity-row
+                          entity: light.wine_fridge
+                          name: Wine Fridge
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Scenes
+                        type: section
+                      items:
+                        - entity: input_select.living_room_scene
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--dark-primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        Living Room
+                    - type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          entity: light.living_room_lights
+                          name: All Lights
+                          icon: mdi:lightbulb-group
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.end_table_lamp
+                          name: End Table
+                          icon: mdi:lamp
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.floor_lamp
+                          name: Floor Lamp
+                          icon: mdi:floor-lamp
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.living_room_lights
+                          name: All
+                          icon: mdi:lightbulb-group
+                        - type: custom:slider-entity-row
+                          entity: light.end_table_lamp
+                          name: End Table
+                          icon: mdi:lamp
+                        - type: custom:slider-entity-row
+                          entity: light.floor_lamp
+                          name: Floor
+                          icon: mdi:floor-lamp
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Scenes
+                        type: section
+                      items:
+                        - entity: input_select.living_room_scene
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--dark-primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        Kitchen/Dining Room
+                    - type: custom:layout-card
+                      column_width: 33%
+                      justify_content: left
+                      cards:
+                        - type: custom:button-card
+                          entity: light.dining_room_light
+                          name: Buffet
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.kitchen_lights_level
+                          name: Kitchen
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                        - type: custom:button-card
+                          entity: light.kitchen_cabinet_lights_level
+                          name: Cabinets
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_and_dining_lights
+                          name: All
+                        - type: custom:slider-entity-row
+                          entity: light.dining_room_light
+                          name: Buffet
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_lights_level
+                          name: Kitchen
+                        - type: custom:slider-entity-row
+                          entity: light.kitchen_cabinet_lights_level
+                          name: Cabinets
+              - type: custom:mod-card
+                style: |
+                  ha-card {
+                    border: 2px solid var(--dark-primary-color);
+                    border-radius: 5%;
+                    padding: 7px;
+                  }
+                card:
+                  type: vertical-stack
+                  cards:
+                    - type: markdown
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                        }
+                      content: >
+                        Garage
+                    - type: custom:layout-card
+                      column_width: 33%
+                      justify_content: left
+                      cards:
+                        - type: custom:button-card
+                          entity: light.wine_fridge
+                          name: Wine
+                          styles:
+                            card:
+                              - border-radius: 10%
+                          state:
+                            - value: 'on'
+                              styles:
+                                card:
+                                  - box-shadow: >-
+                                      0px 0px 20px 3px
+                                      var(--paper-item-icon-active-color)
+                    - type: custom:fold-entity-row
+                      head:
+                        label: Light Settings
+                        type: section
+                      items:
+                        - type: custom:slider-entity-row
+                          entity: light.wine_fridge
+                          name: Wine
+  - name: Weather
+    path: weather
+    icon: 'mdi:weather-sunny'
+    panel: true
     cards:
       - title: 8" Tablet
         type: custom:layout-card
+        layout: vertical
+        column_width: [21%, 79%]
+        column_num: 2
+        cards:
+          - type: markdown
+            class: sidebar
+            style: |
+              .sidebar {
+                font-size: 1.5vw;
+                font-weight: 300;
+                opacity: 0.75;
+              }
+            content: >
+              <span>{{ states('sensor.time') }}</span>
+
+              <font color='#6a7377'><b>{{ states('sensor.sidebar_day') }}</b><br>
+              <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
+
+              <b>{{ states('sensor.sidebar_greeting') }}</b>
+
+              <b>{{ states('sensor.sidebar_active') }}</b>
+
+              <font color='#6a7377'>
+              <b>{{ states('sensor.sidebar_vacuum') }}</b>
+              </font>
+          - type: horizontal-stack
+            cards:
+              - type: button
+                icon: mdi:robot-vacuum
+                show_state: false
+                tap_action: !include popup/sidebar_vacuum.yaml
+                icon_height: 64
+              - type: button
+                icon: mdi:information-outline
+                show_state: false
+                tap_action: !include popup/sidebar_homeassistant.yaml
+                icon_height: 64
+              - type: button
+                icon: mdi:nas
+                show_state: false
+                tap_action: !include popup/sidebar_freenas.yaml
+                icon_height: 64
+          - break
+          - type: custom:layout-card
+            layout: horizontal
+            column_width: [33%, 34%, 33%]
+            column_num: 3
+            cards:
+              - type: custom:mini-graph-card
+                name: Outside
+                entities:
+                  - entity: sensor.outdoor_temperature
+                    name: Temp
+                    show_state: true
+                  - entity: sensor.humidity
+                    name: Humidity
+                    show_state: true
+                    y_axis: secondary
+                show:
+                  labels: true
+                  labels_secondary: true
+              - type: custom:mini-graph-card
+                name: Garage
+                entities:
+                  - entity: sensor.temperature_1
+                    name: Temp
+                    show_state: true
+                  - entity: sensor.humidity_1
+                    name: Humidity
+                    show_state: true
+                    y_axis: secondary
+                show:
+                  labels: true
+                  labels_secondary: true
+              - type: custom:mini-graph-card
+                name: Wine
+                entities:
+                  - entity: sensor.temperature_2
+                    name: Temp
+                    show_state: true
+                  - entity: sensor.humidity_2
+                    name: Humidity
+                    show_state: true
+                    y_axis: secondary
+                show:
+                  labels: true
+                  labels_secondary: true
+              - break
+              - type: custom:mini-graph-card
+                name: Atrium
+                entities:
+                  - entity: sensor.indoor_temperature
+                    name: Temp
+                    show_state: true
+                  - entity: sensor.indoor_humidity
+                    name: Humidity
+                    show_state: true
+                    y_axis: secondary
+                show:
+                  labels: true
+                  labels_secondary: true
+              - type: custom:mini-graph-card
+                name: Kitchen
+                entities:
+                  - entity: sensor.temperature_3
+                    name: Temp
+                    show_state: true
+                  - entity: sensor.humidity_3
+                    name: Humidity
+                    show_state: true
+                    y_axis: secondary
+                show:
+                  labels: true
+                  labels_secondary: true
+              - type: custom:mini-graph-card
+                name: Master Bedroom
+                entities:
+                  - entity: sensor.temperature_4
+                    name: Temp
+                    show_state: true
+                  - entity: sensor.humidity_4
+                    name: Humidity
+                    show_state: true
+                    y_axis: secondary
+                show:
+                  labels: true
+                  labels_secondary: true
+              - break
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      Rainfall
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:water
+                      - type: markdown
+                        content: >
+                          Rate / hr
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.hourly_rain_rate') }}
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:water
+                      - type: markdown
+                        content: >
+                          Daily
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.daily_rain_rate') }}
+              - type: vertical-stack
+                cards:
+                  - type: markdown
+                    content: >
+                      Wind
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:weather-windy
+                      - type: markdown
+                        content: >
+                          Direction
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.weather_wind_direction') }}
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:weather-windy
+                      - type: markdown
+                        content: >
+                          Speed
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.wind_speed') }}
+                  - type: horizontal-stack
+                    cards:
+                      - type: button
+                        icon: mdi:weather-windy
+                      - type: markdown
+                        content: >
+                          Gust
+                      - type: markdown
+                        content: >
+                          {{ states('sensor.wind_gust') }}
+              - type: custom:compass-card
+                header:
+                  title:
+                    value: Wind
+                indicator_sensors:
+                  - sensor: sensor.wind_direction
+                    indicator:
+                      type: arrow_inward
+                value_sensors:
+                  - sensor: sensor.wind_speed
+                    decimals: 1
+              - break
+              - type: custom:ha-card-weather-conditions
+                name: Weather
+                language: en
+                animation: true
+                weather:
+                  icons_model: openweathermap
+                  current:
+                    sun: sun.sun
+                    moon: sensor.moon
+                    humidity: sensor.humidity
+                    pressure: sensor.absolute_pressure
+                    temperature: sensor.outdoor_temperature
+                    wind_bearing: sensor.wind_direction
+                    wind_speed: sensor.wind_speed
+                    precipitation: sensor.daily_rain_rate
+                uv:
+                  uv_index: sensor.uv_index
+  - title: summary
+    path: summary
+    icon: mdi:bucket
+    panel: true
+    cards:
+      - type: custom:layout-card
         layout: vertical
         column_width: [21%, 79%]
         column_num: 2
@@ -170,3 +718,78 @@ views:
                       - entity: sensor.placeholder
                       - entity: sensor.placeholder
                       - entity: sensor.placeholder
+ - title: Energy
+    path: energy
+    icon: 'mdi:lightning-bolt'
+    panel: true
+    cards:
+      - type: 'custom:layout-card'
+        layout: vertical
+        column_width:
+          - 21%
+          - 79%
+        column_num: 2
+        cards:
+          - type: markdown
+            class: sidebar
+            style: |
+              .sidebar {
+                font-size: 1.5vw;
+                font-weight: 300;
+                opacity: 0.75;
+              }
+            content: >
+              <span>{{ states('sensor.time') }}</span>
+
+              <font color='#6a7377'><b>{{ states('sensor.sidebar_day')
+              }}</b><br> <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
+
+              <b>{{ states('sensor.sidebar_greeting') }}</b>
+
+              <b>{{ states('sensor.sidebar_active') }}</b>
+
+              <font color='#6a7377'> <b>{{ states('sensor.sidebar_vacuum')
+              }}</b> </font>
+          - type: horizontal-stack
+            cards:
+              - type: button
+                icon: 'mdi:robot-vacuum'
+                show_state: false
+                icon_height: 64
+              - type: button
+                icon: 'mdi:information-outline'
+                show_state: false
+                icon_height: 64
+              - type: button
+                icon: 'mdi:nas'
+                show_state: false
+                icon_height: 64
+          - break
+          - type: 'custom:layout-card'
+            layout: horizontal
+            cards:
+              - type: entities
+                entities:
+                  - entity: switch.garage_heater_outlet_switch
+                  - entity: sensor.garage_heater_outlet_current
+                  - entity: sensor.garage_heater_outlet_energy
+                  - entity: sensor.garage_heater_outlet_power
+                  - entity: sensor.garage_heater_outlet_previous_reading
+                  - entity: sensor.garage_heater_outlet_voltage
+              - type: entities
+                entities:
+                  - entity: switch.washer_outlet_switch
+                  - entity: sensor.washer_outlet_current
+                  - entity: sensor.washer_outlet_energy
+                  - entity: sensor.washer_outlet_power
+                  - entity: sensor.washer_outlet_previous_reading
+                  - entity: sensor.washer_outlet_voltage
+              - type: 'custom:mini-graph-card'
+                name: Washer
+                entities:
+                  - entity: sensor.washer_outlet_power
+                    name: Power
+                    show_state: true
+                  - entity: sensor.washer_outlet_current
+                    name: Current
+                    show_state: true
