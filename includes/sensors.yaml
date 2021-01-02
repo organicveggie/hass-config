@@ -184,7 +184,7 @@ sensor:
           <font color='#6a7377'>Everything is off</font> 
           {% endif %}
 
-          {% if states('sensor.washer_outlet_power') > 0.0 %}
+          {% if states('sensor.washer_outlet_power')|float > 0.0 %}
           Washing Machine is running
           {% endif %}
 
