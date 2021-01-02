@@ -67,7 +67,9 @@ views:
                         }
                       content: >
                         All Lights
-                    - type: horizontal-stack
+                    - type: custom:layout-card
+                      column_width: 33%
+                      justify_content: left
                       cards:
                         - type: custom:button-card
                           entity: light.indoor_lights
@@ -217,9 +219,7 @@ views:
                         }
                       content: >
                         Kitchen/Dining Room
-                    - type: custom:layout-card
-                      column_width: 32%
-                      justify_content: left
+                    - type: horizontal-stack
                       cards:
                         - type: custom:button-card
                           entity: light.kitchen_and_dining_lights
