@@ -164,36 +164,28 @@ sensor:
           {% set lights_on = lights | selectattr('state','eq','on') | list %}
           {% set lights_name = lights | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
-          {% set switches = [states.switch.esspresso_machine, states.switch.leviton_dzpa1_2bw_plug_in_outlet_switch] %}
+          {% if (lights_on | length == 1) %}
+          {{ lights_name }} is on
+          {% elif (lights_on | length > 1) %}
+          {{ lights_on | length }} lights are on
+          {% endif %}
+
+          {% set switches = [states.switch.esspresso_machine, states.switch.leviton_dzpa1_2bw_plug_in_outlet_switch, states.switch.garage_heater_outlet_switch, states.switch.washer_outlet_switch] %}
           {% set switches_on = switches | selectattr('state','eq','on') | list %} 
           {% set switches_name = switches | selectattr('state','eq','on') | map(attribute='name') | join(', ') %}
 
-          {% if (lights_on | length == 0) and (switches_on | length == 1) %} 
+          {% if (switches_on | length == 1) %}
           {{ switches_name }} is on
+          {% elif (switches_on | length > 1) %}
+          {{ switches_name }} are on
+          {% endif %}
 
-          {% elif (lights_on | length == 0) and (switches_on | length > 1) %} 
-          {{ switches_name | regex_replace(',([^,]*)$',' and\\1') }} are on
-
-          {% elif (lights_on | length == 1) and (switches_on | length == 1) %}
-          {{ lights_name }} and {{switches_name }} are on
-
-          {% elif (lights_on | length == 1) and (switches_on | length > 1) %}
-          {{ lights_name }}, {{ switches_name | regex_replace(',([^,]*)$',' and\\1') }} are on
-
-          {% elif (lights_on | length > 1) and (switches_on | length == 1) %}
-          {{ lights_on | length }} lights and {{ switches_name }} are on
-
-          {% elif (lights_on | length > 1) and (switches_on | length > 1) %}
-          {{ lights_on | length }} lights, {{ switches_name | regex_replace(',([^,]*)$',' and\\1') }} are on
-
-          {% elif (lights_on | length == 1) and (switches_on | length == 0) %}
-          {{ lights_name }} is on
-
-          {% elif (lights_on | length > 1) and (switches_on | length == 0) %}
-          {{ lights_on | length}} lights are on
-
-          {% else %} 
+          {% if (lights_on | length == 0) and (switches_on | length == 0) %}
           <font color='#6a7377'>Everything is off</font> 
+          {% endif %}
+
+          {% if states('sensor.washer_outlet_power') > 0.0 %}
+          Washing Machine is running
           {% endif %}
 
           {% if is_state('cover.atrium_sliding_door', 'open') %}
