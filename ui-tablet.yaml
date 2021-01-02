@@ -67,9 +67,7 @@ views:
                         }
                       content: >
                         All Lights
-                    - type: custom:layout-card
-                      column_width: 33%
-                      justify_content: left
+                    - type: horizontal-stack
                       cards:
                         - type: custom:button-card
                           entity: light.indoor_lights
