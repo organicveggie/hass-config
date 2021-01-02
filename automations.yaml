@@ -198,6 +198,28 @@
     platform: state
     entity_id: input_select.living_room_scene
   action:
-    - service: scene.turn_on
-      data_template:
-        entity_id: scene.living_room_{{ states.input_select.living_room_scene.state | replace(' ', '_') | lower | string }}
+  - service: scene.turn_on
+    data_template:
+      entity_id: scene.living_room_{{ states.input_select.living_room_scene.state
+        | replace(' ', '_') | lower | string }}
+  id: 121488b9efeb4d52a40be40b23d6eb2a
+- id: '1609620140039'
+  alias: Notify washing machine done
+  description: ''
+  trigger:
+  - type: value
+    platform: device
+    device_id: 0ba86b704c7f11eb98d5e3f83f0e6148
+    entity_id: sensor.washer_outlet_power
+    domain: sensor
+    below: 30
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+  condition: []
+  action:
+  - service: notify.pushover_notify_hass
+    data:
+      message: Washing machine is done!
+  mode: single
