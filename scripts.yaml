@@ -18,4 +18,6 @@ house_bedtime:
     entity_id: switch.leviton_dzpa1_2bw_plug_in_outlet_switch
   - service: switch.turn_off
     entity_id: switch.espresso_machine
+  - service: switch.turn_off
+    entity_id: switch.garage_heater_outlet_switch
   mode: single
