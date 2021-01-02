@@ -718,78 +718,78 @@ views:
                       - entity: sensor.placeholder
                       - entity: sensor.placeholder
                       - entity: sensor.placeholder
- - title: Energy
-    path: energy
-    icon: 'mdi:lightning-bolt'
-    panel: true
-    cards:
-      - type: 'custom:layout-card'
-        layout: vertical
-        column_width:
-          - 21%
-          - 79%
-        column_num: 2
-        cards:
-          - type: markdown
-            class: sidebar
-            style: |
-              .sidebar {
-                font-size: 1.5vw;
-                font-weight: 300;
-                opacity: 0.75;
-              }
-            content: >
-              <span>{{ states('sensor.time') }}</span>
-
-              <font color='#6a7377'><b>{{ states('sensor.sidebar_day')
-              }}</b><br> <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
-
-              <b>{{ states('sensor.sidebar_greeting') }}</b>
-
-              <b>{{ states('sensor.sidebar_active') }}</b>
-
-              <font color='#6a7377'> <b>{{ states('sensor.sidebar_vacuum')
-              }}</b> </font>
-          - type: horizontal-stack
-            cards:
-              - type: button
-                icon: 'mdi:robot-vacuum'
-                show_state: false
-                icon_height: 64
-              - type: button
-                icon: 'mdi:information-outline'
-                show_state: false
-                icon_height: 64
-              - type: button
-                icon: 'mdi:nas'
-                show_state: false
-                icon_height: 64
-          - break
-          - type: 'custom:layout-card'
-            layout: horizontal
-            cards:
-              - type: entities
-                entities:
-                  - entity: switch.garage_heater_outlet_switch
-                  - entity: sensor.garage_heater_outlet_current
-                  - entity: sensor.garage_heater_outlet_energy
-                  - entity: sensor.garage_heater_outlet_power
-                  - entity: sensor.garage_heater_outlet_previous_reading
-                  - entity: sensor.garage_heater_outlet_voltage
-              - type: entities
-                entities:
-                  - entity: switch.washer_outlet_switch
-                  - entity: sensor.washer_outlet_current
-                  - entity: sensor.washer_outlet_energy
-                  - entity: sensor.washer_outlet_power
-                  - entity: sensor.washer_outlet_previous_reading
-                  - entity: sensor.washer_outlet_voltage
-              - type: 'custom:mini-graph-card'
-                name: Washer
-                entities:
-                  - entity: sensor.washer_outlet_power
-                    name: Power
-                    show_state: true
-                  - entity: sensor.washer_outlet_current
-                    name: Current
-                    show_state: true
+  - title: Energy
+     path: energy
+     icon: 'mdi:lightning-bolt'
+     panel: true
+     cards:
+       - type: 'custom:layout-card'
+         layout: vertical
+         column_width:
+           - 21%
+           - 79%
+         column_num: 2
+         cards:
+           - type: markdown
+             class: sidebar
+             style: |
+               .sidebar {
+                 font-size: 1.5vw;
+                 font-weight: 300;
+                 opacity: 0.75;
+               }
+             content: >
+               <span>{{ states('sensor.time') }}</span>
+ 
+               <font color='#6a7377'><b>{{ states('sensor.sidebar_day')
+               }}</b><br> <b>{{ states('sensor.sidebar_date') }}</b> </font><br>
+ 
+               <b>{{ states('sensor.sidebar_greeting') }}</b>
+ 
+               <b>{{ states('sensor.sidebar_active') }}</b>
+ 
+               <font color='#6a7377'> <b>{{ states('sensor.sidebar_vacuum')
+               }}</b> </font>
+           - type: horizontal-stack
+             cards:
+               - type: button
+                 icon: 'mdi:robot-vacuum'
+                 show_state: false
+                 icon_height: 64
+               - type: button
+                 icon: 'mdi:information-outline'
+                 show_state: false
+                 icon_height: 64
+               - type: button
+                 icon: 'mdi:nas'
+                 show_state: false
+                 icon_height: 64
+           - break
+           - type: 'custom:layout-card'
+             layout: horizontal
+             cards:
+               - type: entities
+                 entities:
+                   - entity: switch.garage_heater_outlet_switch
+                   - entity: sensor.garage_heater_outlet_current
+                   - entity: sensor.garage_heater_outlet_energy
+                   - entity: sensor.garage_heater_outlet_power
+                   - entity: sensor.garage_heater_outlet_previous_reading
+                   - entity: sensor.garage_heater_outlet_voltage
+               - type: entities
+                 entities:
+                   - entity: switch.washer_outlet_switch
+                   - entity: sensor.washer_outlet_current
+                   - entity: sensor.washer_outlet_energy
+                   - entity: sensor.washer_outlet_power
+                   - entity: sensor.washer_outlet_previous_reading
+                   - entity: sensor.washer_outlet_voltage
+               - type: 'custom:mini-graph-card'
+                 name: Washer
+                 entities:
+                   - entity: sensor.washer_outlet_power
+                     name: Power
+                     show_state: true
+                   - entity: sensor.washer_outlet_current
+                     name: Current
+                     show_state: true
