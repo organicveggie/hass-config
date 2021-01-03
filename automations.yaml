@@ -223,3 +223,17 @@
     data:
       message: Washing machine is done!
   mode: single
+- id: '1609639072190'
+  alias: Front Lock Battery Notifcaton
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.schlage_be469zp_level_frontdoor
+    to: '24'
+    for: '5'
+  condition: []
+  action:
+  - service: notify.pushover_notify_hass
+    data:
+      message: Front Door lock battery < 25%
+  mode: single
